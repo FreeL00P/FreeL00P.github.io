@@ -1,0 +1,939 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="FreeL00P">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="网络复习提纲1、 以太网的核心技术是什么?简述该协议协的要点。以太网的核心技术是CSMA&#x2F;CD（Carrier Sense Multiple Access with Collision Detection，带冲突检测的载波监听多路访问）技术。这种技术允许多个设备共享同一个以太网，避免了数据冲突和数据丢失，提高了网络的可靠性和效率。 CSMA&#x2F;CD协议的要点如下：  载波监听：发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络复习">
+<meta property="og:url" content="http://freel00p.github.io/2023/04/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="自由频率">
+<meta property="og:description" content="网络复习提纲1、 以太网的核心技术是什么?简述该协议协的要点。以太网的核心技术是CSMA&#x2F;CD（Carrier Sense Multiple Access with Collision Detection，带冲突检测的载波监听多路访问）技术。这种技术允许多个设备共享同一个以太网，避免了数据冲突和数据丢失，提高了网络的可靠性和效率。 CSMA&#x2F;CD协议的要点如下：  载波监听：发">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownzB0xK0.png">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownv2-4140cd55e3a6751407d4680c43382e63_720w.webp">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownimage-20230216203623096.png">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownimage-20230216201305312.png">
+<meta property="article:published_time" content="2023-04-05T15:29:25.000Z">
+<meta property="article:modified_time" content="2023-04-05T15:30:56.625Z">
+<meta property="article:author" content="FreeL00P">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownzB0xK0.png">
+  
+  
+  
+  <title>计算机网络复习 - 自由频率</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"freel00p.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>自由频率</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="计算机网络复习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-04-05 23:29" pubdate>
+          2023年4月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          45 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">计算机网络复习</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="网络复习提纲"><a href="#网络复习提纲" class="headerlink" title="网络复习提纲"></a>网络复习提纲</h1><h4 id="1、-以太网的核心技术是什么-简述该协议协的要点。"><a href="#1、-以太网的核心技术是什么-简述该协议协的要点。" class="headerlink" title="1、 以太网的核心技术是什么?简述该协议协的要点。"></a>1、 以太网的核心技术是什么?简述该协议协的要点。</h4><p>以太网的核心技术是CSMA&#x2F;CD（Carrier Sense Multiple Access with Collision Detection，带冲突检测的载波监听多路访问）技术。这种技术允许多个设备共享同一个以太网，避免了数据冲突和数据丢失，提高了网络的可靠性和效率。</p>
+<p>CSMA&#x2F;CD协议的要点如下：</p>
+<ol>
+<li>载波监听：发送数据前，设备首先要监听信道上是否有其它设备正在发送数据。如果检测到信道上有其它设备正在发送数据，设备会等待一段时间后再重新尝试发送数据。</li>
+<li>多路访问：多个设备可以共享同一个以太网，同时发送和接收数据。</li>
+<li>冲突检测：当两个或多个设备在同一时间尝试发送数据时，数据包会发生冲突。在这种情况下，所有设备都会检测到冲突，并且停止发送数据。这种机制可以防止数据包丢失，同时确保网络的可靠性。</li>
+<li>重传机制：如果数据包在发送过程中发生冲突或者发送失败，设备会等待一段时间后重新尝试发送数据。这个过程会一直持续，直到数据包被成功发送或者达到重传次数的上限。</li>
+</ol>
+<p>总之，CSMA&#x2F;CD协议是以太网实现共享访问和高效数据传输的关键技术，它通过使用载波监听和冲突检测机制，确保了多个设备在同一时间可以共享同一个以太网，并且可以避免数据冲突和数据丢失。同时，CSMA&#x2F;CD协议还采用了重传机制，保证了数据的可靠传输。</p>
+<h4 id="2、湖工校园网是局域网还是城域网、或广域网？其协议结构一般涉及ISO-TCP-x2F-IP-的哪些层？"><a href="#2、湖工校园网是局域网还是城域网、或广域网？其协议结构一般涉及ISO-TCP-x2F-IP-的哪些层？" class="headerlink" title="2、湖工校园网是局域网还是城域网、或广域网？其协议结构一般涉及ISO(TCP&#x2F;IP)的哪些层？"></a>2、湖工校园网是局域网还是城域网、或广域网？其协议结构一般涉及ISO(TCP&#x2F;IP)的哪些层？</h4><ul>
+<li>局域网</li>
+<li>物理层和数据链路层</li>
+</ul>
+<h4 id="3、什么是C-x2F-S客户－服务器、P2P-对等-两种通信方式，比较它们的区别、它们的联系。"><a href="#3、什么是C-x2F-S客户－服务器、P2P-对等-两种通信方式，比较它们的区别、它们的联系。" class="headerlink" title="3、什么是C&#x2F;S客户－服务器、P2P(对等)两种通信方式，比较它们的区别、它们的联系。"></a>3、什么是C&#x2F;S客户－服务器、P2P(对等)两种通信方式，比较它们的区别、它们的联系。</h4><ul>
+<li><p><strong>C&#x2F;S</strong></p>
+<ul>
+<li><p>客户端主要负责界面和处理业务逻辑，并为用户提供网络请求服务的接口，如数据查询服务</p>
+</li>
+<li><p>服务端一般以数据处理能力较强的数据库管理系统作为后台，负责接收和处理用户对服务的请求，并将这些服务透明地提供给用户。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>优点：交互性强，具有安全的存取模式，网络通信量低，响应速度快，利于处理大量的数据，可以充分利用两端硬件环境的优势，将任务合理分配到客户端和服务器端来实现，既适用于实际应用程序，又适用于统一的计算和处理。</li>
+<li>缺点：即该结构的程序为针对性开发，不能灵活变更，维护和管理的难度比较大，通常只局限于小型局域网，不利于扩展。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/zB0xK0"><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownzB0xK0.png" srcset="/img/loading.gif" lazyload alt="zB0xK0.png"></a></p>
+</li>
+</ul>
+</li>
+<li><p><strong>P2P</strong></p>
+<ul>
+<li>P2P（Peer-to-Peer）称为对等互连模型。<br>在此环境中，网络上的各台主机具有相同的功能，无主从之分，任一台计算机都是既可当服务器，设定共享资源供网络中其他计算机使用，又可作为工作站。<br>   从程序实现来说，一个应用程序同时起到客户端和服务器的作用。<br>   目前，它是小型局域网常用的组网方式，其优点是配置容易，通信便利，成本低；<br>   缺点是可靠性不如C&#x2F;S模型，易遭黑客攻击。</li>
+</ul>
+<h4 id="4、设某帧待发送数据D-x3D-10100101-采用的生成多项式为P-x3D-X3-1-试求其实际发送-的序列。若采用以上生成多项式，求CRC校验码？"><a href="#4、设某帧待发送数据D-x3D-10100101-采用的生成多项式为P-x3D-X3-1-试求其实际发送-的序列。若采用以上生成多项式，求CRC校验码？" class="headerlink" title="4、设某帧待发送数据D&#x3D;10100101,采用的生成多项式为P&#x3D;X3 +1, 试求其实际发送  的序列。若采用以上生成多项式，求CRC校验码？"></a>4、设某帧待发送数据D&#x3D;10100101,采用的生成多项式为P&#x3D;X3 +1, 试求其实际发送  的序列。若采用以上生成多项式，求CRC校验码？</h4></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><br></code></pre></td></tr></table></figure>
+
+<h4 id="5、画图说明域名服务器（DNS）的工作原理和工作逻辑"><a href="#5、画图说明域名服务器（DNS）的工作原理和工作逻辑" class="headerlink" title="5、画图说明域名服务器（DNS）的工作原理和工作逻辑"></a>5、画图说明域名服务器（DNS）的工作原理和工作逻辑</h4><pre><code class="hljs">                         +------------+
+                         |  用户输入域名   |
+                         +------------+
+                                |
+                                |
+                                v
+                         +------------+
+                         |  本地 DNS 服务器 |
+                         +------------+
+                                |
+                                |
+                                v
+                    缓存中有该域名对应的 IP 地址吗？
+                                |
+                        +------------------+
+                        |    直接返回 IP 地址    |
+                        +------------------+
+                                |
+                                |
+                                v
+                         向根域名服务器查询
+                                |
+                                |
+                                v
+                         +------------+
+                         |  根域名服务器  |
+                         +------------+
+                                |
+                                |
+                                v
+                     返回顶级域名服务器的地址
+                                |
+                                |
+                                v
+                         +------------+
+                         |  顶级域名服务器 |
+                         +------------+
+                                |
+                                |
+                                v
+                      返回权限域名服务器的地址
+                                |
+                                |
+                                v
+                         +------------+
+                         |  权限域名服务器 |
+                         +------------+
+                                |
+                                |
+                                v
+                     返回该域名对应的 IP 地址
+                                |
+                                |
+                                v
+                         +------------+
+                         |  本地 DNS 服务器 |
+                         +------------+
+                                |
+                                |
+                                v
+                        返回该 IP 地址给用户
+                                |
+                                |
+                                v
+                         +------------+
+                         |  用户访问域名   |
+                         +------------+
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ITwang1/article/details/120567964">https://blog.csdn.net/ITwang1/article/details/120567964</a></p>
+<ol>
+<li>用户输入要访问的网址，例如example.com。</li>
+<li>用户的计算机首先会查看本地DNS缓存，看是否已经存储了该域名对应的IP地址。</li>
+<li>如果本地DNS缓存中没有该域名对应的IP地址，用户的计算机会向其配置的本地DNS服务器发出请求。</li>
+<li>如果本地DNS服务器也没有该域名对应的IP地址，它会向根域名服务器发出请求。</li>
+<li>根域名服务器会返回一个包含下一级DNS服务器的IP地址的响应给本地DNS服务器。</li>
+<li>本地DNS服务器再向下一级DNS服务器发出请求，并继续这个过程，直到找到包含所需域名对应IP地址的DNS服务器。</li>
+<li>找到域名对应的IP地址后，本地DNS服务器将其缓存，并将其返回给用户的计算机，以便用户的计算机可以与该服务器建立连接并访问所需的网站。</li>
+</ol>
+<h4 id="6、说明虚电路和数据报的特性，简述本质区别"><a href="#6、说明虚电路和数据报的特性，简述本质区别" class="headerlink" title="6、说明虚电路和数据报的特性，简述本质区别"></a>6、说明虚电路和数据报的特性，简述本质区别</h4><ul>
+<li><p>虚电路</p>
+<ul>
+<li><p>虚电路需要先通过呼叫建立一条虚电路，且建立后通道被占用，其他节点不能使用</p>
+</li>
+<li><p>可靠，保持顺序，一旦发生故障数据全部丢失。</p>
+</li>
+</ul>
+</li>
+<li><p>数据报</p>
+<ul>
+<li>没有专用通路</li>
+<li>分组传输，如有故障可以绕过故障点。</li>
+<li>不能保证按顺序到达，丢失不能立即知晓。</li>
+</ul>
+</li>
+<li><p>区别</p>
+<ul>
+<li>传输通路</li>
+<li>传输方式</li>
+</ul>
+</li>
+</ul>
+<h4 id="7、在TCP-x2F-IP体系结构中，与OSI参考模型层次对应关系"><a href="#7、在TCP-x2F-IP体系结构中，与OSI参考模型层次对应关系" class="headerlink" title="7、在TCP&#x2F;IP体系结构中，与OSI参考模型层次对应关系"></a>7、在TCP&#x2F;IP体系结构中，与OSI参考模型层次对应关系</h4><ol>
+<li>OSI参考模型采用七层模型，而TCP&#x2F;IP采用四层架构</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/248667559">https://zhuanlan.zhihu.com/p/248667559</a></li>
+</ol>
+<p>​    <img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownv2-4140cd55e3a6751407d4680c43382e63_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h4 id="8、ISP指的是什么？路由选择功能是在TCP模型的哪层由何种设备实现的？"><a href="#8、ISP指的是什么？路由选择功能是在TCP模型的哪层由何种设备实现的？" class="headerlink" title="8、ISP指的是什么？路由选择功能是在TCP模型的哪层由何种设备实现的？"></a>8、ISP指的是什么？路由选择功能是在TCP模型的哪层由何种设备实现的？</h4><ul>
+<li>ISP&#x3D;&#x3D;&gt;互联网服务提供商</li>
+<li>网络层<ul>
+<li>实现设备-&gt;路由器&amp;三层交换机（？？？）</li>
+</ul>
+</li>
+</ul>
+<h4 id="9、以太网交换机中的端口-x2F-MAC地址映射表是交换机在数据转发过程中如何建立的"><a href="#9、以太网交换机中的端口-x2F-MAC地址映射表是交换机在数据转发过程中如何建立的" class="headerlink" title="9、以太网交换机中的端口&#x2F;MAC地址映射表是交换机在数据转发过程中如何建立的?"></a>9、以太网交换机中的端口&#x2F;MAC地址映射表是交换机在数据转发过程中如何建立的?</h4><ul>
+<li>交换机在数据转发过程中通过自学习动态建立的</li>
+</ul>
+<h4 id="10、-分析以下IP地址是否正确。"><a href="#10、-分析以下IP地址是否正确。" class="headerlink" title="10、 分析以下IP地址是否正确。"></a>10、 分析以下IP地址是否正确。</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">A77</span>.<span class="hljs-number">76</span>.<span class="hljs-number">75</span>.<span class="hljs-number">74</span>     B <span class="hljs-number">201.35.7.18</span>.<span class="hljs-number">20</span><br><br><span class="hljs-attribute">C</span> <span class="hljs-number">78.76.311.55</span>     D <span class="hljs-number">254.254.254.254</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="11、在TCP-x2F-IP参考模型中，应用层是最高的一层，举出不少于几个应用层的协议，并说明其为何种应用。"><a href="#11、在TCP-x2F-IP参考模型中，应用层是最高的一层，举出不少于几个应用层的协议，并说明其为何种应用。" class="headerlink" title="11、在TCP&#x2F;IP参考模型中，应用层是最高的一层，举出不少于几个应用层的协议，并说明其为何种应用。"></a>11、在TCP&#x2F;IP参考模型中，应用层是最高的一层，举出不少于几个应用层的协议，并说明其为何种应用。</h4><ol>
+<li>DNS域名解析<ul>
+<li>域名转换为iP地址</li>
+</ul>
+</li>
+<li>FTP文件传输协议<ul>
+<li>局域网文件存储服务器</li>
+</ul>
+</li>
+<li>HTTP超文本传输协议</li>
+<li>SMTP电子邮件协议<ul>
+<li>简单邮件发送协议</li>
+</ul>
+</li>
+<li>POP3邮件读取协议</li>
+<li>Telnet远程终端协议</li>
+</ol>
+<h4 id="12、简述计算机网络的功能。"><a href="#12、简述计算机网络的功能。" class="headerlink" title="12、简述计算机网络的功能。"></a>12、简述计算机网络的功能。</h4><ul>
+<li>数据交换资源共享</li>
+</ul>
+<h4 id="13、各层传输的数据单位分别是什么？"><a href="#13、各层传输的数据单位分别是什么？" class="headerlink" title="13、各层传输的数据单位分别是什么？"></a>13、各层传输的数据单位分别是什么？</h4><ul>
+<li>物理层 ————-&gt;比特</li>
+<li>数据链路层——–&gt;帧</li>
+<li>网络层————–&gt;数据包</li>
+<li>传输层—————&gt;报文</li>
+<li>会话层以上的单位不再另外命名都叫报文</li>
+</ul>
+<h4 id="14、设某学校需要创建内部网络，共有6个部门，每个部门约有20－30台主机，试问：-若要将几个部门从网络上分开，如果分配该学校使用一个C类地址，其网络地址为192-168-161-0应如何划分子网？即："><a href="#14、设某学校需要创建内部网络，共有6个部门，每个部门约有20－30台主机，试问：-若要将几个部门从网络上分开，如果分配该学校使用一个C类地址，其网络地址为192-168-161-0应如何划分子网？即：" class="headerlink" title="14、设某学校需要创建内部网络，共有6个部门，每个部门约有20－30台主机，试问：.若要将几个部门从网络上分开，如果分配该学校使用一个C类地址，其网络地址为192.168.161.0应如何划分子网？即："></a>14、设某学校需要创建内部网络，共有6个部门，每个部门约有20－30台主机，试问：.若要将几个部门从网络上分开，如果分配该学校使用一个C类地址，其网络地址为192.168.161.0应如何划分子网？即：</h4><p>.每个子网的网络地址 、..子网掩码  .每个子网IP地址范围。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs"><br></code></pre></td></tr></table></figure>
+
+<h4 id="15、互连网之所以能给用户提供许多服务，就是因为其具有哪两个特性？"><a href="#15、互连网之所以能给用户提供许多服务，就是因为其具有哪两个特性？" class="headerlink" title="15、互连网之所以能给用户提供许多服务，就是因为其具有哪两个特性？"></a>15、互连网之所以能给用户提供许多服务，就是因为其具有哪两个特性？</h4><ul>
+<li><strong>连通性</strong></li>
+<li><strong>共享性</strong></li>
+</ul>
+<h4 id="16、按网络的覆盖范围分类，哪几种网络，-Internet-属于哪类网？"><a href="#16、按网络的覆盖范围分类，哪几种网络，-Internet-属于哪类网？" class="headerlink" title="16、按网络的覆盖范围分类，哪几种网络， Internet 属于哪类网？"></a>16、按网络的覆盖范围分类，哪几种网络， Internet 属于哪类网？</h4><ul>
+<li>局域网（LAN）</li>
+<li>城域网（MAN）</li>
+<li>广域网（WAN）&lt;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;属于</li>
+</ul>
+<h4 id="17、制定互连网正式标准要经过哪三个阶段？其合理性和必要性是什么？"><a href="#17、制定互连网正式标准要经过哪三个阶段？其合理性和必要性是什么？" class="headerlink" title="17、制定互连网正式标准要经过哪三个阶段？其合理性和必要性是什么？"></a>17、制定互连网正式标准要经过哪三个阶段？其合理性和必要性是什么？</h4><ol>
+<li>互联网草案———-在这个阶段还不是RFC文档</li>
+<li>建议标准————–开始成为RFC文档</li>
+<li>互联网标准</li>
+</ol>
+<ul>
+<li>互联网草案的有效期只有6个月，只有到了建议标准阶段才以RFC文档形式发表</li>
+</ul>
+<h4 id="18、线路交换相比与分组交换最大的优点和最大的缺点分别是什么？"><a href="#18、线路交换相比与分组交换最大的优点和最大的缺点分别是什么？" class="headerlink" title="18、线路交换相比与分组交换最大的优点和最大的缺点分别是什么？"></a>18、线路交换相比与分组交换最大的优点和最大的缺点分别是什么？</h4><ol>
+<li><p>线路交换 </p>
+<ul>
+<li><p>优点</p>
+<ul>
+<li><p>通信线路由双方用户专用，数据直达，所以传输时延小</p>
+</li>
+<li><p>通信双方之间的物理通路一旦建立，双方可以随时通信，实时性强</p>
+</li>
+<li><p>双方通信时按发送顺序传送数据，不存在失序问题。</p>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>通信线路建立时间长</li>
+<li>物理通路被通信双方独占，即使通信线路空闲，也不能供其他用户使用，因而信道利用率低。</li>
+<li>数据直达，不同类型，不同规格，不同速率的终端很难相互进行通信，也难以在通信过程中进行差错控制。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>分组交换</p>
+<ul>
+<li>优点<ul>
+<li>不需要建立专用线路，不存在连接建立时延</li>
+<li>采用存储转发方式，当某条线路故障时可以选择其他线路</li>
+<li>分组较短，出错几率减少，每次重发的数据量也减少，不仅提高了可靠性，也减少了时延。</li>
+<li>加速了数据在网络中的传输。因为分组是逐个传输，可以使后一个分组的存储操作与前一个分组的转发操作并行，这种流水线式传输方式减少了传输时间。</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>数据进入节点后要经历存储转发，需要排队，差错校验，发送（转发），接收，当通信量大时，时延也会增大，实时性差。</li>
+<li>分组交换只适用于数字信号</li>
+<li>可能会出现失序、丢失、重复分组问题，增加了处理麻烦。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="19、已知IP地址为177-99-202-134-子网掩码为255-255-255-240-试计算该IP的网络地址和主机号"><a href="#19、已知IP地址为177-99-202-134-子网掩码为255-255-255-240-试计算该IP的网络地址和主机号" class="headerlink" title="19、已知IP地址为177.99.202.134,子网掩码为255.255.255.240,试计算该IP的网络地址和主机号"></a>19、已知IP地址为177.99.202.134,子网掩码为255.255.255.240,试计算该IP的网络地址和主机号</h4><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownimage-20230216203623096.png" srcset="/img/loading.gif" lazyload alt="image-20230216203623096"></p>
+<h4 id="20、举例说明计算机网络中可以共享的资源包括哪些？"><a href="#20、举例说明计算机网络中可以共享的资源包括哪些？" class="headerlink" title="20、举例说明计算机网络中可以共享的资源包括哪些？"></a>20、举例说明计算机网络中可以共享的资源包括哪些？</h4><ol>
+<li>硬件</li>
+<li>软件</li>
+<li>数据</li>
+<li>通信信道</li>
+</ol>
+<h4 id="21、下面有关虚电路和数据报的特性，正确的说法是哪些？"><a href="#21、下面有关虚电路和数据报的特性，正确的说法是哪些？" class="headerlink" title="21、下面有关虚电路和数据报的特性，正确的说法是哪些？"></a>21、下面有关虚电路和数据报的特性，正确的说法是哪些？</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs r">A 虚电路和数据报分别为面向连接和面向无连接的服务 <span class="hljs-built_in">T</span> 虚电路服务是面向连接的，数据报服务是面向无连接的<br>B 数据报在网络中沿同一条路径传输，并且按发出顺序到达 <span class="hljs-built_in">F</span><br>C 虚电路在建立连接之前，分组中只需要携带连接标识 <span class="hljs-built_in">F</span> 之后<br>D 虚电路中的分组到达顺序与发送顺序相同。<span class="hljs-built_in">T</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="22、简述-10Base-T以太网中，各参数的含义。"><a href="#22、简述-10Base-T以太网中，各参数的含义。" class="headerlink" title="22、简述 10Base-T以太网中，各参数的含义。"></a>22、简述 10Base-T以太网中，各参数的含义。</h4><ul>
+<li>Tips:10BASE－T是双绞线以太网</li>
+<li>10&#x3D;&#x3D;&#x3D;&gt;传输速率</li>
+<li>BASE&#x3D;&#x3D;&#x3D;&gt;基带（传输方式）</li>
+<li>T&#x3D;&#x3D;&#x3D;&gt;双绞线</li>
+</ul>
+<h4 id="23、随着微型计算机的广泛应用，大量的微型计算机是通过局域网连入广域网，而局域网与广域网的互联是通过何种网络设备实现的，为什么要采用这种设备？"><a href="#23、随着微型计算机的广泛应用，大量的微型计算机是通过局域网连入广域网，而局域网与广域网的互联是通过何种网络设备实现的，为什么要采用这种设备？" class="headerlink" title="23、随着微型计算机的广泛应用，大量的微型计算机是通过局域网连入广域网，而局域网与广域网的互联是通过何种网络设备实现的，为什么要采用这种设备？"></a>23、随着微型计算机的广泛应用，大量的微型计算机是通过局域网连入广域网，而局域网与广域网的互联是通过何种网络设备实现的，为什么要采用这种设备？</h4><ul>
+<li>路由器实现</li>
+<li><h2 id="why"><a href="#why" class="headerlink" title="why"></a>why</h2></li>
+</ul>
+<h4 id="24、地址解析协议的内容是什么？有何作用？"><a href="#24、地址解析协议的内容是什么？有何作用？" class="headerlink" title="24、地址解析协议的内容是什么？有何作用？"></a>24、地址解析协议的内容是什么？有何作用？</h4><ul>
+<li>根据IP地址寻找MAC地址</li>
+</ul>
+<h4 id="25、分析路由聚合的必要性"><a href="#25、分析路由聚合的必要性" class="headerlink" title="25、分析路由聚合的必要性"></a>25、分析路由聚合的必要性</h4><h4 id="26、举出身边使用虚拟专用网的实例，并说明下其用途"><a href="#26、举出身边使用虚拟专用网的实例，并说明下其用途" class="headerlink" title="26、举出身边使用虚拟专用网的实例，并说明下其用途"></a>26、举出身边使用虚拟专用网的实例，并说明下其用途</h4><ol>
+<li>比如说一个总公司在北京。分公司在全国各地，那么就可以用虚拟专用网络来架设一个该公司的内部通信网络，这需要总公司这边一台VPN，分公司里各一台vpn，虚拟专用网络就是在互联网上架设一跳加密的隧道，而负责加密解密的就是vpn设备，相当于是在互联网上单独开设了一条隧道供该公司信息通信，虽然走的互联网，但是之后在VPn解密之后的公司内网里才能通信，其他人是访问不到的。</li>
+<li>访问国外一些被墙的网站。</li>
+</ol>
+<h4 id="27、路由信息协议（RIP）主要应用于？"><a href="#27、路由信息协议（RIP）主要应用于？" class="headerlink" title="27、路由信息协议（RIP）主要应用于？"></a>27、路由信息协议（RIP）主要应用于？</h4><ul>
+<li>路由器</li>
+</ul>
+<h4 id="28、网络层向上提供的服务有哪两种？TCP-x2F-IP网络层设计思路是什么？"><a href="#28、网络层向上提供的服务有哪两种？TCP-x2F-IP网络层设计思路是什么？" class="headerlink" title="28、网络层向上提供的服务有哪两种？TCP&#x2F;IP网络层设计思路是什么？"></a>28、网络层向上提供的服务有哪两种？TCP&#x2F;IP网络层设计思路是什么？</h4><p>​	网络层向上提供的服务有以下两种：</p>
+<ol>
+<li>数据传输服务：网络层提供的主要服务是将分组从源主机传输到目的主机。在这个过程中，网络层负责选择最佳路径和路由，以及确保数据传输的可靠性和正确性。</li>
+<li>路由选择服务：网络层还提供了路由选择服务，这是因为在复杂的网络中有多条路径可以传输数据。网络层使用路由选择算法来选择最佳路径，从而确保分组能够有效地到达目的主机。</li>
+</ol>
+<p>TCP&#x2F;IP网络层的设计思路是将网络层分为两个子层：互联网协议（Internet Protocol, IP）和网络访问层（Network Access Layer）。</p>
+<p>IP子层负责将分组从源主机传输到目的主机。它定义了分组的格式和内容，包括分组的头部信息和数据部分。IP协议还负责在复杂的网络中选择最佳路径和路由，以确保分组能够有效地到达目的主机。</p>
+<p>网络访问层负责将数据帧从一个主机传输到另一个主机。它定义了数据帧的格式和内容，包括数据帧的头部信息和数据部分。网络访问层还负责实现物理层的接口和访问控制。</p>
+<p>TCP&#x2F;IP网络层的设计思路是简单、灵活和可靠的。通过将网络层分为两个子层，TCP&#x2F;IP网络层可以轻松地适应各种网络环境和设备类型，并提供高效、可靠的数据传输服务。</p>
+<h4 id="29、为什么要划分子网？子网掩码的作用？"><a href="#29、为什么要划分子网？子网掩码的作用？" class="headerlink" title="29、为什么要划分子网？子网掩码的作用？"></a>29、为什么要划分子网？子网掩码的作用？</h4><p>1、减少网络流量</p>
+<p>　　2、提高网络性能</p>
+<p>　　3、简化管理</p>
+<p>　　4、易于扩大地理范围</p>
+<ul>
+<li><strong>是用来划分<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=IP%E5%9C%B0%E5%9D%80&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:447915532%7D">IP地址</a>中哪一部分是网络号，哪一部分是机器号</strong></li>
+</ul>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownimage-20230216201305312.png" srcset="/img/loading.gif" lazyload alt="image-20230216201305312"></p>
+<h4 id="30、要发送的数据比特序列为1010111101，生成多项式为G（x）-x3D-x5-1-试计算其CRC校验码。"><a href="#30、要发送的数据比特序列为1010111101，生成多项式为G（x）-x3D-x5-1-试计算其CRC校验码。" class="headerlink" title="30、要发送的数据比特序列为1010111101，生成多项式为G（x）&#x3D;x5+ 1,试计算其CRC校验码。"></a>30、要发送的数据比特序列为1010111101，生成多项式为G（x）&#x3D;x5+ 1,试计算其CRC校验码。</h4><h4 id="32-、HUB-网桥、集线器，二层交换机，路由器等分别工作在哪层，其主要作用是什么"><a href="#32-、HUB-网桥、集线器，二层交换机，路由器等分别工作在哪层，其主要作用是什么" class="headerlink" title="32 、HUB,网桥、集线器，二层交换机，路由器等分别工作在哪层，其主要作用是什么"></a>32 、HUB,网桥、集线器，二层交换机，路由器等分别工作在哪层，其主要作用是什么</h4><ul>
+<li><p>HUB&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;物理层&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;网络连线的中央连接点，组成星型网络</p>
+</li>
+<li><p>二层交换机&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;数据链路层&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;物理地址寻址、数据的成帧、流量控制、数据的检错、重发</p>
+</li>
+<li><p>路由器&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;网络层&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;連接不同網路</p>
+</li>
+<li><p>网桥&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;数据链路层</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>计算机网络复习</div>
+      <div>http://freel00p.github.io/2023/04/05/计算机网络复习/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>FreeL00P</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年4月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/04/05/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="操作系统笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">操作系统笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/04/05/%E4%B8%80%E4%BA%9BMysql%E7%9F%A5%E8%AF%86%E7%82%B9/" title="一些Mysql知识点">
+                        <span class="hidden-mobile">一些Mysql知识点</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
