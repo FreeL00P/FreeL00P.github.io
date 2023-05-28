@@ -16,17 +16,17 @@
   <meta name="author" content="FreeL00P">
   <meta name="keywords" content="">
   
-    <meta name="description" content="移动互联网技术复习重点：代理ARP运行的原理  PVALN原理   团体vlan的终端相互之间可以互相ping通，隔离vlan的终端之间不能相互ping通 但他们都可以ping通server  DHCP服务器中继端口的判断   PC1与DHCP服务器不在同一个广播域，所以PC1收不到DHCP广播包，获取不到IP所以要在PC1所在路由器接口配置DHCP中继  多生成树原理。 12345region1">
+    <meta name="description" content="移动互联网技术复习重点：代理ARP运行的原理  PVALN原理   团体vlan的终端相互之间可以互相ping通，隔离vlan的终端之间不能相互ping通 但他们都可以ping通server  DHCP服务器中继端口的判断   PC1与DHCP服务器不在同一个广播域，所以PC1收不到DHCP广播包，获取不到IP所以要在PC1所在路由器接口配置DHCP中继  多生成树原理。 多生成树（Multipl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动互联网笔记">
 <meta property="og:url" content="http://freel00p.github.io/2023/05/21/%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="自由频率">
-<meta property="og:description" content="移动互联网技术复习重点：代理ARP运行的原理  PVALN原理   团体vlan的终端相互之间可以互相ping通，隔离vlan的终端之间不能相互ping通 但他们都可以ping通server  DHCP服务器中继端口的判断   PC1与DHCP服务器不在同一个广播域，所以PC1收不到DHCP广播包，获取不到IP所以要在PC1所在路由器接口配置DHCP中继  多生成树原理。 12345region1">
+<meta property="og:description" content="移动互联网技术复习重点：代理ARP运行的原理  PVALN原理   团体vlan的终端相互之间可以互相ping通，隔离vlan的终端之间不能相互ping通 但他们都可以ping通server  DHCP服务器中继端口的判断   PC1与DHCP服务器不在同一个广播域，所以PC1收不到DHCP广播包，获取不到IP所以要在PC1所在路由器接口配置DHCP中继  多生成树原理。 多生成树（Multipl">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515214916022.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/PVLAN.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/DHCP.png">
-<meta property="og:image" content="file:///C:/Users/Administrator/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249849351-10-1685249853188-12.jpg">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132440447.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515223637732.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132702434-1684647252135-6.png">
@@ -35,17 +35,24 @@
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521133658025.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521134553253.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143423227.png">
-<meta property="og:image" content="c:\Users\Administrator\Desktop\%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91\assets\image-20230521143520244.png">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143520244.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143719743.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143825639.png">
-<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230520210658035.png">
-<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230520212420097.png">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230520210658035-1684682016294-4.png">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230520212420097.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143924531.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521145348414.png">
 <meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521145548906.png">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521215736892.png">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521225511731.png">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230527233211059-1685201624569-3.png">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685201613874-1-1685201627292-6.jpg">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249027466-1-1685249088451-7.jpg">
+<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image004-1685249083533-4.jpg">
 <meta property="article:published_time" content="2023-05-21T07:05:39.000Z">
-<meta property="article:modified_time" content="2023-05-21T07:06:29.728Z">
+<meta property="article:modified_time" content="2023-05-28T05:09:05.604Z">
 <meta property="article:author" content="FreeL00P">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515214916022.png">
   
@@ -240,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.7k 字
+          9.9k 字
         
       </span>
     
@@ -251,7 +258,7 @@
         
         
         
-          48 分钟
+          83 分钟
         
       </span>
     
@@ -307,13 +314,19 @@
 <ul>
 <li>PC1与DHCP服务器不在同一个广播域，所以PC1收不到DHCP广播包，获取不到IP所以要在PC1所在路由器接口配置DHCP中继</li>
 </ul>
-<h3 id="多生成树原理。"><a href="#多生成树原理。" class="headerlink" title="多生成树原理。"></a>多生成树原理。</h3><p><img src="file:///C:/Users/Administrator/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="多生成树原理。"><a href="#多生成树原理。" class="headerlink" title="多生成树原理。"></a>多生成树原理。</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249849351-10-1685249853188-12.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>多生成树（Multiple Spanning Tree，MST）是一种网络拓扑结构，可以用于在交换机网络中实现冗余路径，提高网络的可靠性和冗余性。</p>
+<p>在传统的生成树算法中，每个交换机只能有一个生成树根节点，即只有一条活动路径。但是，某些网络拓扑结构可能需要多个路径，以便在链路故障或拥塞时提供备用路径。这时就需要使用多生成树来实现多个生成树根节点。</p>
+<p>多生成树原理可以理解为，当一个交换机接收到多个Spanning Tree Protocol（STP）的根节点时，它将会选择一个根节点，并使用相应的生成树来建立活动路径。如果某个链路出现故障，则交换机可以切换到备用路径继续数据传输。</p>
+<p>为了避免在多个生成树之间出现环路，交换机通常会使用虚拟局域网（VLAN）标识符来标识生成树。每个VLAN都可以有一个独立的生成树，从而实现网络冗余和可靠性。</p>
+<p>需要注意的是，多生成树可以在一些情况下增加网络复杂度，并且对于小型网络可能并不必要。因此，在考虑是否使用多生成树时，应该根据实际需求进行评估和选择。</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali">region1<br>	vlan 2 to<span class="hljs-built_in"> instance </span>2<br>	vlan 3 to<span class="hljs-built_in"> instance </span>3<br>	other vlan to ist <br>一个instance就是一个生成树，ist也是生成树<br></code></pre></td></tr></table></figure>
 
 <h3 id="链路聚合"><a href="#链路聚合" class="headerlink" title="链路聚合"></a>链路聚合</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132440447.png" srcset="/img/loading.gif" lazyload alt="image-20230521132440447"></p>
 <p>圆圈 圈住两条线就是使用了链路聚合技术</p>
 <p><strong>链路聚合优点</strong>：冗余备份 增加带宽</p>
-<h3 id="VRRP-虚拟路由冗余协议-原理"><a href="#VRRP-虚拟路由冗余协议-原理" class="headerlink" title="VRRP(虚拟路由冗余协议)原理"></a>VRRP(虚拟路由冗余协议)原理</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515223637732.png" srcset="/img/loading.gif" lazyload alt="image-20230515223637732"></p>
+<h3 id="VRRP-虚拟路由冗余协议-原理"><a href="#VRRP-虚拟路由冗余协议-原理" class="headerlink" title="VRRP(虚拟路由冗余协议)原理"></a>VRRP(虚拟路由冗余协议)原理</h3><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515223637732.png" srcset="/img/loading.gif" lazyload alt="image-20230515223637732" style="zoom: 33%;" />
+
 <p><strong>主备路由器的选举规则</strong>：先看优先级，优先级大的是主路由器，如果优先级相同，就看路由器的ip地址，IP地址大的是主路由器</p>
 <ul>
 <li><p>在一个VRRP组内的多个路由器接口共用一个虚拟IP地址，该地址被作为局域网内所有主机的缺省网关地址。</p>
@@ -366,14 +379,14 @@
 </li>
 </ul>
 <h3 id="解释路由表的结构"><a href="#解释路由表的结构" class="headerlink" title="解释路由表的结构"></a>解释路由表的结构</h3><p><strong>路由表包含以下条目</strong> </p>
-<ul>
+<ol>
 <li><p>直连网络</p>
 </li>
 <li><p>静态路由</p>
 </li>
 <li><p>动态路由协议</p>
 </li>
-</ul>
+</ol>
 <p>路由表是在路由器（Router）中维护的一个重要的数据结构，它用于记录路由器可达的网络和子网以及它们之间的关联信息。路由表也被称为转发表（Forwarding Table），它可以被路由器用来决策当前收到数据报时应该转发到哪个出接口。</p>
 <p><strong>路由表的记录通常包括以下信息：</strong></p>
 <ol>
@@ -390,19 +403,23 @@
 </ul>
 <p><strong>父类路由和子路由（无类路由）</strong></p>
 <p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132954276-1684647263335-10.png" srcset="/img/loading.gif" lazyload alt="image-20230521132954276"></p>
-<p>​	</p>
-<ul>
+<ol>
 <li><p>没有缩进的是一级路由</p>
 </li>
 <li><p>有缩进的是二级路由</p>
 </li>
 <li><p>有出口的是最终路由，一行中有对应的接口，就是能够转发的路由，就是最终路由</p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521133658025.png" srcset="/img/loading.gif" lazyload alt="image-20230521133658025"></p>
 </li>
-</ul>
-<p>一级路由：没有缩进的是一级路由&#x3D;&#x3D;&gt;172.16.0.0&#x2F;24 is subnetted,3 subnets &amp;  R 192.168.1.0 &#x2F;24 [120&#x2F;1] via 172.16.2.2 00:00:25,Serial0&#x2F;0&#x2F;0 </p>
-<p>父路由：后有子路由的一级路由 &#x3D;&#x3D;&gt;172.16.0.0&#x2F;24 is subnetted,3 subnets</p>
-<p>子路由：带缩进的就是子路由&#x3D;&#x3D;&gt;C 172.16.2.0 is directly connected,Serial0&#x2F;0&#x2F;0</p>
+</ol>
+<p>  <img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521133658025.png" srcset="/img/loading.gif" lazyload alt="image-20230521133658025"></p>
+<ol>
+<li><p>一级路由：没有缩进的是一级路由&#x3D;&#x3D;&gt;172.16.0.0&#x2F;24 is subnetted,3 subnets &amp;  R 192.168.1.0 &#x2F;24 [120&#x2F;1] via 172.16.2.2 00:00:25,Serial0&#x2F;0&#x2F;0 </p>
+</li>
+<li><p>父路由：后有子路由的一级路由 &#x3D;&#x3D;&gt;172.16.0.0&#x2F;24 is subnetted,3 subnets</p>
+</li>
+<li><p>子路由：带缩进的就是子路由&#x3D;&#x3D;&gt;C 172.16.2.0 is directly connected,Serial0&#x2F;0&#x2F;0</p>
+</li>
+</ol>
 <p><strong>思科配置命令</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">enable                           // 进入特权用户模式<br>configure terminal               // 进入全局配置模式<br>ip route &lt;目的网段&gt; &lt;子网掩码&gt; &lt;下一跳地址&gt;  // 添加路由表记录<br>no ip route &lt;目的网段&gt; &lt;子网掩码&gt; &lt;下一跳地址&gt; // 删除路由表记录<br>end                              // 退出配置模式<br>show ip route                    // 查看路由表<br></code></pre></td></tr></table></figure>
 
@@ -443,7 +460,7 @@
 <li><strong>前面是O，就是代表的OSPF的路由来源</strong></li>
 </ul>
 <p><strong>看路由表，判定是否使用了多区域</strong></p>
-<p><img src="C:\Users\Administrator\Desktop\移动互联网\assets\image-20230521143520244.png" srcset="/img/loading.gif" lazyload alt="image-20230521143520244"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143520244.png" srcset="/img/loading.gif" lazyload alt="image-20230521143520244"></p>
 <ul>
 <li><strong>看到O开头，表路由来源为OSPF，后面紧跟着IA，意味着这个路由是三类LSA，而三类LSA只存在多区域中进行通信，即看到O IA就使用了多区域</strong></li>
 </ul>
@@ -458,18 +475,23 @@
 <li><strong>O E2（或O E1）就是有路由重注入或注入或外部路由</strong></li>
 </ul>
 <p><strong>在 OSPF 中，有三种特殊的区域类型：backbone、stub、totally stubby。</strong></p>
-<ul>
+<ol>
 <li>Backbone（骨干区域）：所有的区域必须通过骨干区域来相互通信。骨干区域是 OSPF 区域的必要组成部分，没有骨干区域则不构成 OSPF 区域，因为所有的 OSPF 区域都必须和骨干区域相连通，而骨干区域必须是一个连通的区域。</li>
 <li>Stub（禁止传递）：在这种区域里，当出现到一个未在该区域内的目的网络或者主机的路由时，ASBR 会把该路由替换成一个缺省路由。通常该缺省路由会指向一个在同一自治系统内的更好的路径。另外，该区域的路由表中不包含外部路由，只包含该区域和 AS 内部的路由。</li>
 <li>Totally stubby（完全禁止传递）：在这种区域里，除了与骨干区相连的路由器之外，其他的路由器不会学习到外部路由，并只有一条默认路由指向骨干区域。</li>
-</ul>
+</ol>
 <p>特殊区域的原理在于通过简化路由表和减少路由器间的 LSDB（Link State Database）大小，提高 OSPF 集成的效率和网络的可靠性。而 Stub 和 Totally stubby 区域还可以增加的网络的安全性，减少了从区域外进入的风险。</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230520210658035.png" srcset="/img/loading.gif" lazyload alt="image-20230520210658035"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230520210658035-1684682016294-4.png" srcset="/img/loading.gif" lazyload alt="image-20230520210658035"></p>
 <p><strong>多区域OSPF配置 – 标准区域配置</strong></p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230520212420097.png" srcset="/img/loading.gif" lazyload alt="image-20230520212420097"></p>
-<p>RT3(config-router)# <strong>network 192.168.1.0 0.0.0.255 area 1</strong></p>
-<p>RT3(config-router)# <strong>network 192.168.2.0 0.0.0.255 area 0</strong></p>
-<p>RT3(config-router)# <strong>network 3.3.3.0 0.0.0.255 area 1</strong></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230520212420097.png" srcset="/img/loading.gif" lazyload alt="image-20230520212420097"></p>
+<ol>
+<li><p>RT3(config-router)# <strong>network 192.168.1.0 0.0.0.255 area 1</strong></p>
+</li>
+<li><p>RT3(config-router)# <strong>network 192.168.2.0 0.0.0.255 area 0</strong></p>
+</li>
+<li><p>RT3(config-router)# <strong>network 3.3.3.0 0.0.0.255 area 1</strong></p>
+</li>
+</ol>
 <h3 id="理解RIP和OSPF路由协议选择路径的区别"><a href="#理解RIP和OSPF路由协议选择路径的区别" class="headerlink" title="理解RIP和OSPF路由协议选择路径的区别"></a>理解RIP和OSPF路由协议选择路径的区别</h3><p>RIP（Routing Information Protocol）和 OSPF（Open Shortest Path First）是两种常见的路由协议，两者在选择路径的方式上有明显的区别。</p>
 <ul>
 <li>RIP：在 RIP 中，路由器会周期性地交换路由信息，并根据每条路径的距离选择最短路径。RIP 中的距离度量单位是跳数（hop count），即数据报从源站经过的路由器数。RIP 默认最大跳数为 15，超过 15 跳的路径会被认为是不可达。因此，RIP 更适合用于小型、广播型网络，而不太适合用于复杂、大型、分布型网络。</li>
@@ -478,21 +500,22 @@
 <p>综上所述，RIP 和 OSPF 在选择路径的方式上有明显的区别。RIP 以跳数为开销度量单位，适合小型广播型网络；而 OSPF 以带宽为开销度量单位，适合大型复杂分布型网络。</p>
 <h3 id="理解ISIS路由协议及路由渗透"><a href="#理解ISIS路由协议及路由渗透" class="headerlink" title="理解ISIS路由协议及路由渗透"></a>理解ISIS路由协议及路由渗透</h3><p><strong>ISIS中的NET地址</strong></p>
 <p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143924531.png" srcset="/img/loading.gif" lazyload alt="image-20230521143924531"></p>
-<p>​	<strong>NET area id.系统id.00</strong> (00为固定值)</p>
-<ul>
+<p>​	ISIS路由协议是帮助网络中的路由器找到最佳路径的一个协议，主要应用于大型企业网络和互联网服务提供商的核心路由器上。它可以让路由器之间相互通信，发现彼此的位置，并选择最佳路径进行数据传输。ISIS协议具有基于连接状态的路由选择算法。简单来说，它能够帮助网络中的路由器找到路径更短、速度更快、更可靠的连接方式，优化网络性能和数据传输效率	</p>
+<p><strong>NET area id.系统id.00</strong> (00为固定值)</p>
+<ol>
 <li>ISIS路由协议和OSPF路由协议类似，是一个内部网关协议（IGP），用于在同一网络内部选择最佳路径进行数据转发。ISIS路由协议比较灵活，支持多种标识，包括网络地址、系统标识符和端口号等，还可以与其他路由协议进行互操作。</li>
 <li>而ISIS路由渗透是指两个自治系统之间通过ISIS路由协议互相学习并转发对方的路由信息，以实现异构网络之间的连接和信息交换。</li>
-</ul>
+</ol>
 <h3 id="区域间路由"><a href="#区域间路由" class="headerlink" title="区域间路由"></a>区域间路由</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521145348414.png" srcset="/img/loading.gif" lazyload alt="image-20230521145348414"></p>
 <ol>
 <li>L1路由器只有直连路由和默认路由</li>
 <li>L1&#x2F;2路由器是拥有整个图的路由</li>
 </ol>
 <h3 id="RIP协议和OSPF下不同的路径的选择"><a href="#RIP协议和OSPF下不同的路径的选择" class="headerlink" title="RIP协议和OSPF下不同的路径的选择"></a>RIP协议和OSPF下不同的路径的选择</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521145548906.png" srcset="/img/loading.gif" lazyload alt="image-20230521145548906"></p>
-<ul>
+<ol>
 <li>运行RIP的情况下，RIP的规则就是转发数据经过的路由器最少，通信主机之间的路由器最少，上面图选择的路径显然是PC1-&gt;R2-&gt;R3-&gt;PC2（最短跳数优先）</li>
 <li>运行OSPF的情况下，pc1和PC2通信经过那条路径，你就去图中找，图中肯定会出现 XX M或者其他，什么链路不需要管，找到一条路这些数字加起来最大的一条路径就可以，上面图选择的路径显然是PC1-&gt;R2-&gt;R1-&gt;R3-&gt;PC2,因为如果走下面的路（不经过R1），数字100，PC1-&gt;R2-&gt;R1-&gt;R3-&gt;PC2就是100+100，最大，所以优先（最大带宽优先）</li>
-</ul>
+</ol>
 <h3 id="理解单区域OSPF路由协议配置方式"><a href="#理解单区域OSPF路由协议配置方式" class="headerlink" title="理解单区域OSPF路由协议配置方式"></a>理解单区域OSPF路由协议配置方式</h3><p>好的，以下是一个在思科设备上配置单区域OSPF路由协议的示例：</p>
 <p>假设我们有两台设备A和B，他们之间通过一个接口连接，IP地址分别为192.168.1.1和192.168.1.2，子网掩码为255.255.255.0。要在它们之间配置单区域OSPF路由协议，步骤如下：</p>
 <ol>
@@ -520,9 +543,138 @@
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">Router OSPF 100(相当于启动OSPF，进程号100)<br>（Router id X.X.X.X（X不超过255就行，可以1.1.1.1））<br>    network 192.168.2.0 0.0.0.255 area 0<br>    network 192.168.3.0 0.0.0.255 area 0<br></code></pre></td></tr></table></figure>
 
+<h3 id="理解IPV6地址的类型"><a href="#理解IPV6地址的类型" class="headerlink" title="理解IPV6地址的类型"></a>理解IPV6地址的类型</h3><p>以下是一些IPv6地址类型的示例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 单播地址：<br><span class="hljs-bullet">-</span> 全球单播地址：2001:0db8:85a3:0000:0000:8a2e:0370:7334<br><span class="hljs-bullet">-</span> 唯一本地单播地址：fc00:0000:0000:0000:8def:1234:5678:9012<br><span class="hljs-bullet">2.</span> 组播地址：<br><span class="hljs-bullet">-</span> 全球组播地址：ff0e:0:0:0:0:0:fdd4:90c4<br><span class="hljs-bullet">-</span> 唯一本地组播地址：ff01:0:0:0:0:0:0:1<br><span class="hljs-bullet">3.</span> 任播地址：<br><span class="hljs-bullet">-</span> 全球任播地址：2001:0db8:85a3::/48<br><span class="hljs-bullet">-</span> 唯一本地任播地址：fe80:0:0:0:aa:bb:cc:dd/64<br><span class="hljs-bullet">4.</span> 回环地址：<br><span class="hljs-bullet">-</span> ::1<br><span class="hljs-bullet">5.</span> 零地址：<br><span class="hljs-bullet">-</span> ::<br><span class="hljs-bullet">6.</span> 文本地址：<br><span class="hljs-bullet">-</span> 域名服务器：2001:db8::53<br><span class="hljs-bullet">-</span> 网络时钟：2001:db8::101:cd00:99:ee00<br></code></pre></td></tr></table></figure>
 
+<h3 id="广播域的范围和VLAN的划分"><a href="#广播域的范围和VLAN的划分" class="headerlink" title="广播域的范围和VLAN的划分"></a>广播域的范围和VLAN的划分</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521215736892.png" srcset="/img/loading.gif" lazyload alt="image-20230521215736892"></p>
+<ol>
+<li><p>同属于一个vlan下的主机是在同一个广播域，所以在广播之后，只有与自己在同一个广播域的主机或设备可以收到</p>
+</li>
+<li><p>哪个主机可收到</p>
+<ol>
+<li>如果PC1广播，PC2可以收到（PC1和PC2都属于VLAN 2）</li>
+<li>如果pc3广播，PC4可以收到（PC3和PC4都属于VLAN 3）</li>
+</ol>
+</li>
+<li><p>交换机哪个接口可以收到：</p>
+<p>PC1发广播域，交换机S1的2,3接口可以收到，交换机S2的3，1接口可以收到，因为S1的2号接口与PC1在同一个VLAN 2下，S2的3号接口也是属于VLAN 2,而交换机的之间的接口，也就是两台交换机的3号接		    口，是走公共数据的接口类型，所以在没有配置的情况下，是可以接收所有的VLAN数据</p>
+</li>
+</ol>
+<h3 id="交换机的接口类型"><a href="#交换机的接口类型" class="headerlink" title="交换机的接口类型"></a>交换机的接口类型</h3><ol start="4">
+<li><p>交换机接主机的接口是配置的access类型</p>
+</li>
+<li><p>交换机与交换机之间的接口是配置的trunk类型</p>
+</li>
+<li><p>所以交换机S1的1和2号是access类型，3号接口是trunk</p>
+</li>
+<li><p>交换机S1的1和2号是access类型，3号接口是trunk</p>
+</li>
+</ol>
+<h3 id="STP的生成（生成树的选举）"><a href="#STP的生成（生成树的选举）" class="headerlink" title="STP的生成（生成树的选举）"></a>STP的生成（生成树的选举）</h3><p><strong>前沿知识</strong></p>
+<ul>
+<li><strong>基础</strong></li>
+</ul>
+<ol>
+<li>.运行STP协议的交换机，出厂会携带一个BID（bridge ID），标识符，用于表示自身</li>
+<li>.BID由  桥优先级+MAC地址组成</li>
+</ol>
+<ul>
+<li><strong>根桥选举规则</strong></li>
+</ul>
+<ol>
+<li>BID最小的交换机成为根桥。</li>
+<li>先比较桥优先级，越小越优，桥优先级相同，则比较MAC地址，越小越优（根桥可以被抢夺）</li>
+</ol>
+<ul>
+<li><strong>什么是根桥id</strong></li>
+</ul>
+<ol>
+<li>根桥ID，运行生成树之后，网络中会选举出根交换机，叫根桥，根桥ID就是来描述根桥的</li>
+<li>桥ID，就是来描述自身的BID，为什么会有两个ID呢，因为有一些交换机不是根交换机，但是自己这里需要存储谁是根交换机，所以有根BID，也要表示自己，所以有了桥ID</li>
+</ol>
+<p><strong>选举流程</strong></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521225511731.png" srcset="/img/loading.gif" lazyload alt="image-20230521225511731"></p>
+<ol>
+<li>第一步：选举根网桥，先比较BID,BID相同在比较MAC地址，越<strong>小</strong>越优<ul>
+<li>我们可以知道SWA优先级为4096，比SWB和SWC的32768要小,所以SWA为根网桥</li>
+</ul>
+</li>
+<li>第二步：选举根端口，按照非根交换机去往根网桥，COST值最小的成为根端口（默认为1）<ul>
+<li>SWB &#x3D;&gt;SWA 有两条线路 G0&#x2F;0&#x2F;1&#x3D;&gt;直连SWA &amp; G0&#x2F;0&#x2F;2&#x3D;&gt;SWC&#x3D;SWA,每条线路的cost值为1，</li>
+<li>线路COST的端口为根端口</li>
+</ul>
+</li>
+<li>第三步：选举指定端口，每个链路上只有一个指定端口，但是指定端口不能与根端口是一个端口<ul>
+<li>SWA和SWB通过G0&#x2F;0&#x2F;1相连接，G0&#x2F;0&#x2F;1已经为根端口,所以G0&#x2F;0&#x2F;2为指定端口</li>
+<li>SWA和SWC同上，同理</li>
+<li>SWB和SWC</li>
+</ul>
+</li>
+<li>第四步：确定阻塞端口，既不是根端口，也不是指定端口的接口就是阻塞端口<ul>
+<li>SWC的G0&#x2F;0&#x2F;2为阻塞端口</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230527233211059-1685201624569-3.png" srcset="/img/loading.gif" lazyload alt="image-20230527233211059"></p>
+<p>这种情况，是极有可能考察的，这里省略一些东西，上图中的BID是写成了4096 B，简写了，这里4096就是优先级，这里的优先级相同，B就相当于MAC地址，如果下面说BID小的，就是MAC地址小的，我们这里为了方便，是假设MAC地址为1位的情况下</p>
+<ol>
+<li><p>我们假设通过比较BID，确定SWA是根网桥</p>
+</li>
+<li><p>第二步就是选RP（根端口），与网桥相连的非根网桥交换机端口直接写RP，SWB和SWC的Fa0&#x2F;1的为RP，然后非根网桥SWC有两个端口，每一个非根网桥交换机上有一个根端口，根据规则，我们先比较COST值（这个COST值是交换机到达网桥的和），SWC有两条路可以到SWA，可以知道SWC通过两条路去SWA，COST都是2,cost相同，cost相同的情况下，我们比较SWC对端交换机的BID，什么意思呢，就是SWC有两条路去SWA，一条是通过SWB，一条是SWD，这两个就是SWC的对端，所以确定SWC的根端口，就是比较SWD与SWB的BID（图中优先级相同，MAC地不同），显然B&lt;D，所以SWB的BID小，所以SWC上的与SWB相连的Fa0&#x2F;1端口为根端口，也就是SWC的Fa0&#x2F;1</p>
+</li>
+<li><p>第三步就是确定指定端口，按照一个链路一个指定端口，可以知道SWA的两个端口在对应的链路上为指定端口，然后SWB的F0&#x2F;2为指定端口，这是为什么呢，小白理解就是根端口对端的端口就是指定端口，各个端口的情况如下</p>
+</li>
+</ol>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685201613874-1-1685201627292-6.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>所以最后还有SWC与SWD之间还有一条链路，我们说过一条链路必有一个指定端口，那这个指定端口是SWC的端口，还是SWD的端口呢，我们根据COST值越小的越优的原则，SWC去根网桥SWA的COST为2，SWC去SWA有两条路，一条经过SWB，一条经过SWD，但是经过SWD的这条路，SWC有端口在竞选成为什么端口，所以这条路不通，所以SWC的COST为2,那同理SWD去SWA，可以直接去SWA，所以COST值为1，所以SWD的Fa0&#x2F;2端口为指定端口</p>
+<p>最后一步就是确定阻塞端口，不是根端口，也不是指定端口的端口，为阻塞端口，图中就只剩下了一个端口，就是SWC的Fa0&#x2F;2端口，所以为阻塞端口</p>
+<p>综上总结几点，</p>
+<ol>
+<li>一个交换机上一个根端口</li>
+<li>一个链路上一个指定端口</li>
+<li>根端口的对面一定是指定端口</li>
+</ol>
+<p>做题时简便的方式：</p>
+<p>不管是三台交换机（第一个那样三角形），四台交换机（第二个那样四边形）</p>
+<ol>
+<li>先确定根网桥</li>
+<li>根网桥的所有接口直接写DP（指定端口）</li>
+<li>与网桥相连的交换机端口，直接是RP（其实也就是网桥DP对面一定是RP）</li>
+<li>如果是三角形，经过上面的步骤，就只有最后一个链路的端口类型需要判断了，如果是四边形，就还要对RP,DP进行判断，只需要记住，一个交换机（非根交换机）上必须有一个RP（有且仅有一个），每条链路上必有一个是DP端口</li>
+<li>RP与DP确定之后，最后一个就是阻塞端口（BP）</li>
+</ol>
+<p>如果是四边形，有一个RP是比较难确定的，可以直接按照前面说明去选择就好，一定要记住有RP这一条链路上，另外一个端口一定时DP端口</p>
+<h3 id="IP地址聚合运算"><a href="#IP地址聚合运算" class="headerlink" title="IP地址聚合运算"></a>IP地址聚合运算</h3><p>路由聚合路由汇总的“含义”是把一组路由汇聚为单个的路由广播。<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%B7%AF%E7%94%B1%E6%B1%87%E8%81%9A&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">路由汇聚</a>的最终结果和最明显的优点是缩小网络上的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%B7%AF%E7%94%B1%E8%A1%A8&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">路由表</a>的尺寸。</p>
+<p>算法实现</p>
+<p>　　假设下面有4个路由: 　　</p>
+<p>172.18.129.0&#x2F;24 　　</p>
+<p>172.18.130.0&#x2F;24 　　</p>
+<p>172.18.132.0&#x2F;24 　　</p>
+<p>172.18.133.0&#x2F;24 　　</p>
+<p>如果这四个进行路由汇聚,</p>
+<p>能覆盖这四个路由的是: 　　172.18.128.0&#x2F;21 　　</p>
+<p>算法为：</p>
+<p>129的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BB%A3%E7%A0%81&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">二进制代码</a>是10000001 　　</p>
+<p>130的二进制代码是10000010 　　</p>
+<p>132的二进制代码是10000100 　　</p>
+<p>133的二进制代码是10000101 　　</p>
+<p>这四个数的前五位相同都是10000，所以加上前面的172.18这两部分相同的位数，<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E7%BD%91%E7%BB%9C%E5%8F%B7&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">网络号</a>就是8+8+5&#x3D;21。</p>
+<p>而10000000的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">十进制数</a>是128，所以，路由汇聚的Ip地址就是172.18.128.0。所以最终答案就是172.18.128.0&#x2F;21</p>
+<h3 id="pconfig-x2F-all-命令查出的信息含义"><a href="#pconfig-x2F-all-命令查出的信息含义" class="headerlink" title="pconfig &#x2F;all 命令查出的信息含义"></a>pconfig &#x2F;all 命令查出的信息含义</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249027466-1-1685249088451-7.jpg" srcset="/img/loading.gif" lazyload alt="12"></p>
+<p>两张图片显示的字段大致相同，但是具体的值不一样</p>
+<p>主要信息说明</p>
+<p>Physical Address：物理地址，也就是MAC地址</p>
+<p>Link-local IPv6 address:本地链路IPv6地址</p>
+<p>IPv4 address:ipv4地址</p>
+<p>Subnetmask：子网掩码</p>
+<p>Default gateway：默认网关</p>
+<p>DNS servers：DNS服务器</p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image004-1685249083533-4.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>可能考的点：</p>
+<p>1.可能会考上面的字段的含义</p>
+<p>2.重点：会考察Link-local IPv6 address:本地链路IPv6地址，后面紧跟%XX字段的含义。例fe80：：b50b:4bfd:c2d3:2a0c%10中%10是什么含义，可以说是网卡的索引号，也可以说是接口标志符，相当于网卡的编号，两种说法都可</p>
+<p>注意！回去看一下ipconfig &#x2F;all命令的所有内容。要读懂，考试一定会考的。知道每一部分什么意思，干嘛用的？你要读懂。  IP地址，MAC地址，网关，DHCP等。</p>
 
-<h3 id="理解生成树协议端口角色的判断"><a href="#理解生成树协议端口角色的判断" class="headerlink" title="理解生成树协议端口角色的判断"></a>理解生成树协议端口角色的判断</h3><h3 id="理解IPV6地址的类型"><a href="#理解IPV6地址的类型" class="headerlink" title="理解IPV6地址的类型"></a>理解IPV6地址的类型</h3><h3 id="学会可变长子网划分IP地址的方法"><a href="#学会可变长子网划分IP地址的方法" class="headerlink" title="学会可变长子网划分IP地址的方法"></a>学会可变长子网划分IP地址的方法</h3><h3 id="学会IP地址聚合的运算"><a href="#学会IP地址聚合的运算" class="headerlink" title="学会IP地址聚合的运算"></a>学会IP地址聚合的运算</h3>
                 
               </div>
             
@@ -530,6 +682,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
+      
+    </div>
   
 </div>
 
