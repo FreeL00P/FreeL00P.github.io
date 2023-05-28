@@ -1,331 +1,450 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
+<!DOCTYPE HTML>
+<html lang="zh-CN">
 
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="FreeL00P">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="移动互联网技术复习重点：代理ARP运行的原理  PVALN原理   团体vlan的终端相互之间可以互相ping通，隔离vlan的终端之间不能相互ping通 但他们都可以ping通server  DHCP服务器中继端口的判断   PC1与DHCP服务器不在同一个广播域，所以PC1收不到DHCP广播包，获取不到IP所以要在PC1所在路由器接口配置DHCP中继  多生成树原理。 多生成树（Multipl">
-<meta property="og:type" content="article">
-<meta property="og:title" content="移动互联网笔记">
-<meta property="og:url" content="http://freel00p.github.io/2023/05/21/%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E7%AC%94%E8%AE%B0/index.html">
-<meta property="og:site_name" content="自由频率">
-<meta property="og:description" content="移动互联网技术复习重点：代理ARP运行的原理  PVALN原理   团体vlan的终端相互之间可以互相ping通，隔离vlan的终端之间不能相互ping通 但他们都可以ping通server  DHCP服务器中继端口的判断   PC1与DHCP服务器不在同一个广播域，所以PC1收不到DHCP广播包，获取不到IP所以要在PC1所在路由器接口配置DHCP中继  多生成树原理。 多生成树（Multipl">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515214916022.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/PVLAN.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/DHCP.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249849351-10-1685249853188-12.jpg">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132440447.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515223637732.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132702434-1684647252135-6.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002.jpg">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132954276-1684647263335-10.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521133658025.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521134553253.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143423227.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143520244.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143719743.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143825639.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230520210658035-1684682016294-4.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230520212420097.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143924531.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521145348414.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521145548906.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521215736892.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521225511731.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230527233211059-1685201624569-3.png">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685201613874-1-1685201627292-6.jpg">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249027466-1-1685249088451-7.jpg">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image004-1685249083533-4.jpg">
-<meta property="article:published_time" content="2023-05-21T07:05:39.000Z">
-<meta property="article:modified_time" content="2023-05-28T05:09:05.604Z">
-<meta property="article:author" content="FreeL00P">
-<meta property="article:tag" content="计算机网络">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515214916022.png">
-  
-  
-  
-  <title>移动互联网笔记 - 自由频率</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="移动互联网笔记, 跳动的音符">
+    <meta name="description" content="移动互联网技术复习重点：代理ARP运行的原理
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+PVALN原理
+
+
+团体vlan的终端相互之间可以互相ping通，隔离vlan的终端之间不能相互ping通
+但他们都可以ping通server
+
+DHCP服务器中继端口的判断
+
+
+PC1与DH">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>移动互联网笔记 | 跳动的音符</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
 
 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
 
 
 
 
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"freel00p.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
 
 
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
-  
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">跳动的音符</span>
+                </a>
+            </div>
+            
 
-  <header>
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
     
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>自由频率</strong>
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
     </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
+    
+  </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">跳动的音符</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
           
-            <span id="subtitle" data-typed-text="移动互联网笔记"></span>
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
           
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
         </div>
 
         
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-21 15:05" pubdate>
-          2023年5月21日 下午
-        </time>
-      </span>
-    
-  </div>
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
 
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
         
-          9.9k 字
-        
-      </span>
-    
+    </nav>
+
+</header>
 
     
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          83 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
 
 
-        
-      </div>
 
-      
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">移动互联网笔记</h1>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-</div>
 
-  </header>
 
-  <main>
+
+<main class="post-container content">
+
     
-      
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">移动互联网笔记</h1>
-            
-            
-              <div class="markdown-body">
+            <div class="post-info">
                 
-                <h2 id="移动互联网技术复习重点："><a href="#移动互联网技术复习重点：" class="headerlink" title="移动互联网技术复习重点："></a>移动互联网技术复习重点：</h2><h3 id="代理ARP运行的原理"><a href="#代理ARP运行的原理" class="headerlink" title="代理ARP运行的原理"></a>代理ARP运行的原理</h3><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515214916022.png" srcset="/img/loading.gif" lazyload alt="image-20230515214916022" style="zoom:67%;" />
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-05-21
+                </div>
+                
 
-<h3 id="PVALN原理"><a href="#PVALN原理" class="headerlink" title="PVALN原理"></a>PVALN原理</h3><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/PVLAN.png" srcset="/img/loading.gif" lazyload style="zoom: 67%;" />
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="移动互联网技术复习重点："><a href="#移动互联网技术复习重点：" class="headerlink" title="移动互联网技术复习重点："></a>移动互联网技术复习重点：</h2><h3 id="代理ARP运行的原理"><a href="#代理ARP运行的原理" class="headerlink" title="代理ARP运行的原理"></a>代理ARP运行的原理</h3><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515214916022.png" alt="image-20230515214916022" style="zoom:67%;">
+
+<h3 id="PVALN原理"><a href="#PVALN原理" class="headerlink" title="PVALN原理"></a>PVALN原理</h3><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/PVLAN.png" style="zoom: 67%;">
 
 <ul>
 <li>团体vlan的终端相互之间可以互相ping通，隔离vlan的终端之间不能相互ping通</li>
 <li>但他们都可以ping通server</li>
 </ul>
-<h3 id="DHCP服务器中继端口的判断"><a href="#DHCP服务器中继端口的判断" class="headerlink" title="DHCP服务器中继端口的判断"></a>DHCP服务器中继端口的判断</h3><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/DHCP.png" srcset="/img/loading.gif" lazyload alt="DHCP" style="zoom:67%;" />
+<h3 id="DHCP服务器中继端口的判断"><a href="#DHCP服务器中继端口的判断" class="headerlink" title="DHCP服务器中继端口的判断"></a>DHCP服务器中继端口的判断</h3><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/DHCP.png" alt="DHCP" style="zoom:67%;">
 
 <ul>
 <li>PC1与DHCP服务器不在同一个广播域，所以PC1收不到DHCP广播包，获取不到IP所以要在PC1所在路由器接口配置DHCP中继</li>
 </ul>
-<h3 id="多生成树原理。"><a href="#多生成树原理。" class="headerlink" title="多生成树原理。"></a>多生成树原理。</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249849351-10-1685249853188-12.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="多生成树原理。"><a href="#多生成树原理。" class="headerlink" title="多生成树原理。"></a>多生成树原理。</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249849351-10-1685249853188-12.jpg" alt="img"></p>
 <p>多生成树（Multiple Spanning Tree，MST）是一种网络拓扑结构，可以用于在交换机网络中实现冗余路径，提高网络的可靠性和冗余性。</p>
 <p>在传统的生成树算法中，每个交换机只能有一个生成树根节点，即只有一条活动路径。但是，某些网络拓扑结构可能需要多个路径，以便在链路故障或拥塞时提供备用路径。这时就需要使用多生成树来实现多个生成树根节点。</p>
 <p>多生成树原理可以理解为，当一个交换机接收到多个Spanning Tree Protocol（STP）的根节点时，它将会选择一个根节点，并使用相应的生成树来建立活动路径。如果某个链路出现故障，则交换机可以切换到备用路径继续数据传输。</p>
 <p>为了避免在多个生成树之间出现环路，交换机通常会使用虚拟局域网（VLAN）标识符来标识生成树。每个VLAN都可以有一个独立的生成树，从而实现网络冗余和可靠性。</p>
 <p>需要注意的是，多生成树可以在一些情况下增加网络复杂度，并且对于小型网络可能并不必要。因此，在考虑是否使用多生成树时，应该根据实际需求进行评估和选择。</p>
-<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali">region1<br>	vlan 2 to<span class="hljs-built_in"> instance </span>2<br>	vlan 3 to<span class="hljs-built_in"> instance </span>3<br>	other vlan to ist <br>一个instance就是一个生成树，ist也是生成树<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">region1
+	vlan 2 to instance 2
+	vlan 3 to instance 3
+	other vlan to ist 
+一个instance就是一个生成树，ist也是生成树<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="链路聚合"><a href="#链路聚合" class="headerlink" title="链路聚合"></a>链路聚合</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132440447.png" srcset="/img/loading.gif" lazyload alt="image-20230521132440447"></p>
+<h3 id="链路聚合"><a href="#链路聚合" class="headerlink" title="链路聚合"></a>链路聚合</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132440447.png" alt="image-20230521132440447"></p>
 <p>圆圈 圈住两条线就是使用了链路聚合技术</p>
 <p><strong>链路聚合优点</strong>：冗余备份 增加带宽</p>
-<h3 id="VRRP-虚拟路由冗余协议-原理"><a href="#VRRP-虚拟路由冗余协议-原理" class="headerlink" title="VRRP(虚拟路由冗余协议)原理"></a>VRRP(虚拟路由冗余协议)原理</h3><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515223637732.png" srcset="/img/loading.gif" lazyload alt="image-20230515223637732" style="zoom: 33%;" />
+<h3 id="VRRP-虚拟路由冗余协议-原理"><a href="#VRRP-虚拟路由冗余协议-原理" class="headerlink" title="VRRP(虚拟路由冗余协议)原理"></a>VRRP(虚拟路由冗余协议)原理</h3><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230515223637732.png" alt="image-20230515223637732" style="zoom: 33%;">
 
 <p><strong>主备路由器的选举规则</strong>：先看优先级，优先级大的是主路由器，如果优先级相同，就看路由器的ip地址，IP地址大的是主路由器</p>
 <ul>
@@ -355,7 +474,7 @@
 </li>
 <li>ACL（访问控制列表）</li>
 </ul>
-<h3 id="ACL访问控制列表标准和扩展访问控制列表原理"><a href="#ACL访问控制列表标准和扩展访问控制列表原理" class="headerlink" title="ACL访问控制列表标准和扩展访问控制列表原理"></a>ACL访问控制列表标准和扩展访问控制列表原理</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132702434-1684647252135-6.png" srcset="/img/loading.gif" lazyload alt="image-20230521132702434"></p>
+<h3 id="ACL访问控制列表标准和扩展访问控制列表原理"><a href="#ACL访问控制列表标准和扩展访问控制列表原理" class="headerlink" title="ACL访问控制列表标准和扩展访问控制列表原理"></a>ACL访问控制列表标准和扩展访问控制列表原理</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132702434-1684647252135-6.png" alt="image-20230521132702434"></p>
 <ul>
 <li><p><strong>ACL分为标准ACL，扩展ACL</strong></p>
 <ul>
@@ -364,8 +483,8 @@
 <li><p>扩展ACL：是更具源IP和目的IP来控制报文的（配置在离源近的路由器接口）</p>
 </li>
 </ul>
-<p>例：PC1访问PC3的情况下，如果让你用标准ACL进行控制，可以在R3的Fa0&#x2F;1配置，因为根据规则，离目的近的路由器接口，离PC3最近的路由器是R3，最近的接口就是Fa0&#x2F;1</p>
-<p>PC1访问PC3的情况下，如果让你用扩展ACL进行控制，可以在R1的Fa0&#x2F;1配置，因为根据规则，离源近的路由器接口，离PC1最近的路由器是R1，最近的接口就是Fa0&#x2F;1</p>
+<p>例：PC1访问PC3的情况下，如果让你用标准ACL进行控制，可以在R3的Fa0/1配置，因为根据规则，离目的近的路由器接口，离PC3最近的路由器是R3，最近的接口就是Fa0/1</p>
+<p>PC1访问PC3的情况下，如果让你用扩展ACL进行控制，可以在R1的Fa0/1配置，因为根据规则，离源近的路由器接口，离PC1最近的路由器是R1，最近的接口就是Fa0/1</p>
 </li>
 <li><p>ACL是一种路由器配置脚本，它根据从数据包报头中发现的条件来控制路由器应该允许还是拒绝数据包通过. </p>
 <ul>
@@ -396,13 +515,13 @@
 <li>出接口（Outgoing Interface）：表示要从哪个端口转发出去。</li>
 </ol>
 <p><strong>最长匹配</strong></p>
-<p><strong><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002.jpg" srcset="/img/loading.gif" lazyload alt="img"></strong></p>
+<p><strong><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002.jpg" alt="img"></strong></p>
 <ul>
 <li>路由前面的字母 <strong>C-是直连路由</strong> <strong>R-是RIP学到的路由</strong></li>
-<li><strong>路由中有[120&#x2F;1]，其中120的含义是管理距离，1的含义是开销</strong></li>
+<li><strong>路由中有[120/1]，其中120的含义是管理距离，1的含义是开销</strong></li>
 </ul>
 <p><strong>父类路由和子路由（无类路由）</strong></p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132954276-1684647263335-10.png" srcset="/img/loading.gif" lazyload alt="image-20230521132954276"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132954276-1684647263335-10.png" alt="image-20230521132954276"></p>
 <ol>
 <li><p>没有缩进的是一级路由</p>
 </li>
@@ -411,22 +530,27 @@
 <li><p>有出口的是最终路由，一行中有对应的接口，就是能够转发的路由，就是最终路由</p>
 </li>
 </ol>
-<p>  <img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521133658025.png" srcset="/img/loading.gif" lazyload alt="image-20230521133658025"></p>
+<p>  <img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521133658025.png" alt="image-20230521133658025"></p>
 <ol>
-<li><p>一级路由：没有缩进的是一级路由&#x3D;&#x3D;&gt;172.16.0.0&#x2F;24 is subnetted,3 subnets &amp;  R 192.168.1.0 &#x2F;24 [120&#x2F;1] via 172.16.2.2 00:00:25,Serial0&#x2F;0&#x2F;0 </p>
+<li><p>一级路由：没有缩进的是一级路由==&gt;172.16.0.0/24 is subnetted,3 subnets &amp;  R 192.168.1.0 /24 [120/1] via 172.16.2.2 00:00:25,Serial0/0/0 </p>
 </li>
-<li><p>父路由：后有子路由的一级路由 &#x3D;&#x3D;&gt;172.16.0.0&#x2F;24 is subnetted,3 subnets</p>
+<li><p>父路由：后有子路由的一级路由 ==&gt;172.16.0.0/24 is subnetted,3 subnets</p>
 </li>
-<li><p>子路由：带缩进的就是子路由&#x3D;&#x3D;&gt;C 172.16.2.0 is directly connected,Serial0&#x2F;0&#x2F;0</p>
+<li><p>子路由：带缩进的就是子路由==&gt;C 172.16.2.0 is directly connected,Serial0/0/0</p>
 </li>
 </ol>
 <p><strong>思科配置命令</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">enable                           // 进入特权用户模式<br>configure terminal               // 进入全局配置模式<br>ip route &lt;目的网段&gt; &lt;子网掩码&gt; &lt;下一跳地址&gt;  // 添加路由表记录<br>no ip route &lt;目的网段&gt; &lt;子网掩码&gt; &lt;下一跳地址&gt; // 删除路由表记录<br>end                              // 退出配置模式<br>show ip route                    // 查看路由表<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">enable</span>                           // 进入特权用户模式
+configure terminal               // 进入全局配置模式
+<span class="token function">ip</span> route <span class="token operator">&lt;</span>目的网段<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>子网掩码<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>下一跳地址<span class="token operator">&gt;</span>  // 添加路由表记录
+no <span class="token function">ip</span> route <span class="token operator">&lt;</span>目的网段<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>子网掩码<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>下一跳地址<span class="token operator">&gt;</span> // 删除路由表记录
+end                              // 退出配置模式
+show <span class="token function">ip</span> route                    // 查看路由表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>例如，添加一条默认路由，将所有未知目的地址转发到网关 192.168.0.1：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ip route 0.0.0.0 0.0.0.0 192.168.0.1<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ip</span> route <span class="token number">0.0</span>.0.0 <span class="token number">0.0</span>.0.0 <span class="token number">192.168</span>.0.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理"><a href="#OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理" class="headerlink" title="OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理"></a>OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521134553253.png" srcset="/img/loading.gif" lazyload alt="image-20230521134553253"></p>
+<h3 id="OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理"><a href="#OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理" class="headerlink" title="OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理"></a>OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521134553253.png" alt="image-20230521134553253"></p>
 <ol>
 <li><p>区域的路由器不超过255</p>
 </li>
@@ -445,32 +569,32 @@
 </li>
 <li><p>非特殊区域（标准区域或主干区域）含有的LSA种类，LSA1,LSA2，LSA 3 ，LSA 4，LSA 5</p>
 </li>
-<li><p>Stub区域含有的LSA种类：LSA 1,LSA 2，LSA 3，3类0.0.0.0&#x2F;0</p>
+<li><p>Stub区域含有的LSA种类：LSA 1,LSA 2，LSA 3，3类0.0.0.0/0</p>
 </li>
-<li><p>完全stub区域(Totally stub区域)含有的LSA种类：LSA 1,LSA 2,3类0.0.0.0&#x2F;0</p>
+<li><p>完全stub区域(Totally stub区域)含有的LSA种类：LSA 1,LSA 2,3类0.0.0.0/0</p>
 </li>
 <li><p>NSSA区域含有的LSA种类：LSA 1,LSA 2，LSA 3，LSA 7</p>
 </li>
-<li><p>完全NSSA区域(Totally NSSA区域)含有的LSA种类：LSA 1，LSA2，LSA 7，3类0.0.0.0&#x2F;0</p>
+<li><p>完全NSSA区域(Totally NSSA区域)含有的LSA种类：LSA 1，LSA2，LSA 7，3类0.0.0.0/0</p>
 </li>
 </ol>
 <p><strong>通过路由表判断是否用了OSPF协议</strong></p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143423227.png" srcset="/img/loading.gif" lazyload alt="image-20230521143423227"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143423227.png" alt="image-20230521143423227"></p>
 <ul>
 <li><strong>前面是O，就是代表的OSPF的路由来源</strong></li>
 </ul>
 <p><strong>看路由表，判定是否使用了多区域</strong></p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143520244.png" srcset="/img/loading.gif" lazyload alt="image-20230521143520244"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143520244.png" alt="image-20230521143520244"></p>
 <ul>
 <li><strong>看到O开头，表路由来源为OSPF，后面紧跟着IA，意味着这个路由是三类LSA，而三类LSA只存在多区域中进行通信，即看到O IA就使用了多区域</strong></li>
 </ul>
 <p><strong>看路由表，如果问你有无特殊区域</strong></p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143719743.png" srcset="/img/loading.gif" lazyload alt="image-20230521143719743"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143719743.png" alt="image-20230521143719743"></p>
 <ul>
 <li><strong>O N2就可以知道有特殊区域，且为NSSS特殊区域</strong></li>
 </ul>
 <p><strong>看路由表，问你有无路由重注入或注入或外部路由</strong></p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143825639.png" srcset="/img/loading.gif" lazyload alt="image-20230521143825639"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143825639.png" alt="image-20230521143825639"></p>
 <ul>
 <li><strong>O E2（或O E1）就是有路由重注入或注入或外部路由</strong></li>
 </ul>
@@ -481,9 +605,9 @@
 <li>Totally stubby（完全禁止传递）：在这种区域里，除了与骨干区相连的路由器之外，其他的路由器不会学习到外部路由，并只有一条默认路由指向骨干区域。</li>
 </ol>
 <p>特殊区域的原理在于通过简化路由表和减少路由器间的 LSDB（Link State Database）大小，提高 OSPF 集成的效率和网络的可靠性。而 Stub 和 Totally stubby 区域还可以增加的网络的安全性，减少了从区域外进入的风险。</p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230520210658035-1684682016294-4.png" srcset="/img/loading.gif" lazyload alt="image-20230520210658035"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230520210658035-1684682016294-4.png" alt="image-20230520210658035"></p>
 <p><strong>多区域OSPF配置 – 标准区域配置</strong></p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230520212420097.png" srcset="/img/loading.gif" lazyload alt="image-20230520212420097"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230520212420097.png" alt="image-20230520212420097"></p>
 <ol>
 <li><p>RT3(config-router)# <strong>network 192.168.1.0 0.0.0.255 area 1</strong></p>
 </li>
@@ -499,19 +623,19 @@
 </ul>
 <p>综上所述，RIP 和 OSPF 在选择路径的方式上有明显的区别。RIP 以跳数为开销度量单位，适合小型广播型网络；而 OSPF 以带宽为开销度量单位，适合大型复杂分布型网络。</p>
 <h3 id="理解ISIS路由协议及路由渗透"><a href="#理解ISIS路由协议及路由渗透" class="headerlink" title="理解ISIS路由协议及路由渗透"></a>理解ISIS路由协议及路由渗透</h3><p><strong>ISIS中的NET地址</strong></p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143924531.png" srcset="/img/loading.gif" lazyload alt="image-20230521143924531"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521143924531.png" alt="image-20230521143924531"></p>
 <p>​	ISIS路由协议是帮助网络中的路由器找到最佳路径的一个协议，主要应用于大型企业网络和互联网服务提供商的核心路由器上。它可以让路由器之间相互通信，发现彼此的位置，并选择最佳路径进行数据传输。ISIS协议具有基于连接状态的路由选择算法。简单来说，它能够帮助网络中的路由器找到路径更短、速度更快、更可靠的连接方式，优化网络性能和数据传输效率	</p>
 <p><strong>NET area id.系统id.00</strong> (00为固定值)</p>
 <ol>
 <li>ISIS路由协议和OSPF路由协议类似，是一个内部网关协议（IGP），用于在同一网络内部选择最佳路径进行数据转发。ISIS路由协议比较灵活，支持多种标识，包括网络地址、系统标识符和端口号等，还可以与其他路由协议进行互操作。</li>
 <li>而ISIS路由渗透是指两个自治系统之间通过ISIS路由协议互相学习并转发对方的路由信息，以实现异构网络之间的连接和信息交换。</li>
 </ol>
-<h3 id="区域间路由"><a href="#区域间路由" class="headerlink" title="区域间路由"></a>区域间路由</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521145348414.png" srcset="/img/loading.gif" lazyload alt="image-20230521145348414"></p>
+<h3 id="区域间路由"><a href="#区域间路由" class="headerlink" title="区域间路由"></a>区域间路由</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521145348414.png" alt="image-20230521145348414"></p>
 <ol>
 <li>L1路由器只有直连路由和默认路由</li>
-<li>L1&#x2F;2路由器是拥有整个图的路由</li>
+<li>L1/2路由器是拥有整个图的路由</li>
 </ol>
-<h3 id="RIP协议和OSPF下不同的路径的选择"><a href="#RIP协议和OSPF下不同的路径的选择" class="headerlink" title="RIP协议和OSPF下不同的路径的选择"></a>RIP协议和OSPF下不同的路径的选择</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521145548906.png" srcset="/img/loading.gif" lazyload alt="image-20230521145548906"></p>
+<h3 id="RIP协议和OSPF下不同的路径的选择"><a href="#RIP协议和OSPF下不同的路径的选择" class="headerlink" title="RIP协议和OSPF下不同的路径的选择"></a>RIP协议和OSPF下不同的路径的选择</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521145548906.png" alt="image-20230521145548906"></p>
 <ol>
 <li>运行RIP的情况下，RIP的规则就是转发数据经过的路由器最少，通信主机之间的路由器最少，上面图选择的路径显然是PC1-&gt;R2-&gt;R3-&gt;PC2（最短跳数优先）</li>
 <li>运行OSPF的情况下，pc1和PC2通信经过那条路径，你就去图中找，图中肯定会出现 XX M或者其他，什么链路不需要管，找到一条路这些数字加起来最大的一条路径就可以，上面图选择的路径显然是PC1-&gt;R2-&gt;R1-&gt;R3-&gt;PC2,因为如果走下面的路（不经过R1），数字100，PC1-&gt;R2-&gt;R1-&gt;R3-&gt;PC2就是100+100，最大，所以优先（最大带宽优先）</li>
@@ -521,32 +645,61 @@
 <ol>
 <li>在A和B的接口上开启OSPF协议</li>
 </ol>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-constructor">A(<span class="hljs-params">config</span>)</span># interface GigabitEthernet0/<span class="hljs-number">0</span><br><span class="hljs-constructor">A(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># ip address <span class="hljs-number">192.168</span>.<span class="hljs-number">1.1</span> <span class="hljs-number">255.255</span>.<span class="hljs-number">255.0</span><br><span class="hljs-constructor">A(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># ip ospf network broadcast<br><span class="hljs-constructor">A(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># no shutdown<br><br><span class="hljs-constructor">B(<span class="hljs-params">config</span>)</span># interface GigabitEthernet0/<span class="hljs-number">0</span><br><span class="hljs-constructor">B(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># ip address <span class="hljs-number">192.168</span>.<span class="hljs-number">1.2</span> <span class="hljs-number">255.255</span>.<span class="hljs-number">255.0</span><br><span class="hljs-constructor">B(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># ip ospf network broadcast<br><span class="hljs-constructor">B(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># no shutdown<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">A(config)# interface GigabitEthernet0/0
+A(config-if)# ip address 192.168.1.1 255.255.255.0
+A(config-if)# ip ospf network broadcast
+A(config-if)# no shutdown
 
-<p>其中，GigabitEthernet0&#x2F;0是连接A和B的接口类型和编号。</p>
+B(config)# interface GigabitEthernet0/0
+B(config-if)# ip address 192.168.1.2 255.255.255.0
+B(config-if)# ip ospf network broadcast
+B(config-if)# no shutdown<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中，GigabitEthernet0/0是连接A和B的接口类型和编号。</p>
 <ol start="2">
 <li>在 OSPF 进程中配置OSPF参数</li>
 </ol>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-built_in">A</span>(config)<span class="hljs-meta"># router ospf 1</span><br><span class="hljs-built_in">B</span>(config)<span class="hljs-meta"># router ospf 1</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">A(config)# router ospf 1
+B(config)# router ospf 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>此处我们指定了进程号为1，A和B的进程号需要保持一致。</p>
 <ol start="3">
 <li>配置Router ID</li>
 </ol>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-constructor">A(<span class="hljs-params">config</span>-<span class="hljs-params">router</span>)</span># router-id <span class="hljs-number">1.1</span>.<span class="hljs-number">1.1</span><br><span class="hljs-constructor">B(<span class="hljs-params">config</span>-<span class="hljs-params">router</span>)</span># router-id <span class="hljs-number">2.2</span>.<span class="hljs-number">2.2</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">A(config-router)# router-id 1.1.1.1
+B(config-router)# router-id 2.2.2.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>在本示例中，A设备的ID号为1.1.1.1，B设备的ID号为2.2.2.2。请注意，这两个号必须唯一，建议在使用IP地址作为ID时，确保地址唯一以避免冲突。</p>
 <ol start="4">
 <li>配置区域</li>
 </ol>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">A</span>(config-router)# network <span class="hljs-number">192.168.1.0</span> <span class="hljs-number">0.0.0.255</span> area <span class="hljs-number">0</span><br><span class="hljs-attribute">B</span>(config-router)# network <span class="hljs-number">192.168.1.0</span> <span class="hljs-number">0.0.0.255</span> area <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">A(config-router)# network 192.168.1.0 0.0.0.255 area 0
+B(config-router)# network 192.168.1.0 0.0.0.255 area 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">Router OSPF 100(相当于启动OSPF，进程号100)<br>（Router id X.X.X.X（X不超过255就行，可以1.1.1.1））<br>    network 192.168.2.0 0.0.0.255 area 0<br>    network 192.168.3.0 0.0.0.255 area 0<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Router OSPF <span class="token number">100</span><span class="token punctuation">(</span>相当于启动OSPF，进程号100<span class="token punctuation">)</span>
+（Router <span class="token function">id</span> X.X.X.X（X不超过255就行，可以1.1.1.1））
+    network <span class="token number">192.168</span>.2.0 <span class="token number">0.0</span>.0.255 area <span class="token number">0</span>
+    network <span class="token number">192.168</span>.3.0 <span class="token number">0.0</span>.0.255 area <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="理解IPV6地址的类型"><a href="#理解IPV6地址的类型" class="headerlink" title="理解IPV6地址的类型"></a>理解IPV6地址的类型</h3><p>以下是一些IPv6地址类型的示例：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 单播地址：<br><span class="hljs-bullet">-</span> 全球单播地址：2001:0db8:85a3:0000:0000:8a2e:0370:7334<br><span class="hljs-bullet">-</span> 唯一本地单播地址：fc00:0000:0000:0000:8def:1234:5678:9012<br><span class="hljs-bullet">2.</span> 组播地址：<br><span class="hljs-bullet">-</span> 全球组播地址：ff0e:0:0:0:0:0:fdd4:90c4<br><span class="hljs-bullet">-</span> 唯一本地组播地址：ff01:0:0:0:0:0:0:1<br><span class="hljs-bullet">3.</span> 任播地址：<br><span class="hljs-bullet">-</span> 全球任播地址：2001:0db8:85a3::/48<br><span class="hljs-bullet">-</span> 唯一本地任播地址：fe80:0:0:0:aa:bb:cc:dd/64<br><span class="hljs-bullet">4.</span> 回环地址：<br><span class="hljs-bullet">-</span> ::1<br><span class="hljs-bullet">5.</span> 零地址：<br><span class="hljs-bullet">-</span> ::<br><span class="hljs-bullet">6.</span> 文本地址：<br><span class="hljs-bullet">-</span> 域名服务器：2001:db8::53<br><span class="hljs-bullet">-</span> 网络时钟：2001:db8::101:cd00:99:ee00<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1. 单播地址：
+- 全球单播地址：2001:0db8:85a3:0000:0000:8a2e:0370:7334
+- 唯一本地单播地址：fc00:0000:0000:0000:8def:1234:5678:9012
+2. 组播地址：
+- 全球组播地址：ff0e:0:0:0:0:0:fdd4:90c4
+- 唯一本地组播地址：ff01:0:0:0:0:0:0:1
+3. 任播地址：
+- 全球任播地址：2001:0db8:85a3::/48
+- 唯一本地任播地址：fe80:0:0:0:aa:bb:cc:dd/64
+4. 回环地址：
+- ::1
+5. 零地址：
+- ::
+6. 文本地址：
+- 域名服务器：2001:db8::53
+- 网络时钟：2001:db8::101:cd00:99:ee00<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="广播域的范围和VLAN的划分"><a href="#广播域的范围和VLAN的划分" class="headerlink" title="广播域的范围和VLAN的划分"></a>广播域的范围和VLAN的划分</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521215736892.png" srcset="/img/loading.gif" lazyload alt="image-20230521215736892"></p>
+<h3 id="广播域的范围和VLAN的划分"><a href="#广播域的范围和VLAN的划分" class="headerlink" title="广播域的范围和VLAN的划分"></a>广播域的范围和VLAN的划分</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521215736892.png" alt="image-20230521215736892"></p>
 <ol>
 <li><p>同属于一个vlan下的主机是在同一个广播域，所以在广播之后，只有与自己在同一个广播域的主机或设备可以收到</p>
 </li>
@@ -593,41 +746,41 @@
 <li>桥ID，就是来描述自身的BID，为什么会有两个ID呢，因为有一些交换机不是根交换机，但是自己这里需要存储谁是根交换机，所以有根BID，也要表示自己，所以有了桥ID</li>
 </ol>
 <p><strong>选举流程</strong></p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521225511731.png" srcset="/img/loading.gif" lazyload alt="image-20230521225511731"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521225511731.png" alt="image-20230521225511731"></p>
 <ol>
 <li>第一步：选举根网桥，先比较BID,BID相同在比较MAC地址，越<strong>小</strong>越优<ul>
 <li>我们可以知道SWA优先级为4096，比SWB和SWC的32768要小,所以SWA为根网桥</li>
 </ul>
 </li>
 <li>第二步：选举根端口，按照非根交换机去往根网桥，COST值最小的成为根端口（默认为1）<ul>
-<li>SWB &#x3D;&gt;SWA 有两条线路 G0&#x2F;0&#x2F;1&#x3D;&gt;直连SWA &amp; G0&#x2F;0&#x2F;2&#x3D;&gt;SWC&#x3D;SWA,每条线路的cost值为1，</li>
+<li>SWB =&gt;SWA 有两条线路 G0/0/1=&gt;直连SWA &amp; G0/0/2=&gt;SWC=SWA,每条线路的cost值为1，</li>
 <li>线路COST的端口为根端口</li>
 </ul>
 </li>
 <li>第三步：选举指定端口，每个链路上只有一个指定端口，但是指定端口不能与根端口是一个端口<ul>
-<li>SWA和SWB通过G0&#x2F;0&#x2F;1相连接，G0&#x2F;0&#x2F;1已经为根端口,所以G0&#x2F;0&#x2F;2为指定端口</li>
+<li>SWA和SWB通过G0/0/1相连接，G0/0/1已经为根端口,所以G0/0/2为指定端口</li>
 <li>SWA和SWC同上，同理</li>
 <li>SWB和SWC</li>
 </ul>
 </li>
 <li>第四步：确定阻塞端口，既不是根端口，也不是指定端口的接口就是阻塞端口<ul>
-<li>SWC的G0&#x2F;0&#x2F;2为阻塞端口</li>
+<li>SWC的G0/0/2为阻塞端口</li>
 </ul>
 </li>
 </ol>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230527233211059-1685201624569-3.png" srcset="/img/loading.gif" lazyload alt="image-20230527233211059"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230527233211059-1685201624569-3.png" alt="image-20230527233211059"></p>
 <p>这种情况，是极有可能考察的，这里省略一些东西，上图中的BID是写成了4096 B，简写了，这里4096就是优先级，这里的优先级相同，B就相当于MAC地址，如果下面说BID小的，就是MAC地址小的，我们这里为了方便，是假设MAC地址为1位的情况下</p>
 <ol>
 <li><p>我们假设通过比较BID，确定SWA是根网桥</p>
 </li>
-<li><p>第二步就是选RP（根端口），与网桥相连的非根网桥交换机端口直接写RP，SWB和SWC的Fa0&#x2F;1的为RP，然后非根网桥SWC有两个端口，每一个非根网桥交换机上有一个根端口，根据规则，我们先比较COST值（这个COST值是交换机到达网桥的和），SWC有两条路可以到SWA，可以知道SWC通过两条路去SWA，COST都是2,cost相同，cost相同的情况下，我们比较SWC对端交换机的BID，什么意思呢，就是SWC有两条路去SWA，一条是通过SWB，一条是SWD，这两个就是SWC的对端，所以确定SWC的根端口，就是比较SWD与SWB的BID（图中优先级相同，MAC地不同），显然B&lt;D，所以SWB的BID小，所以SWC上的与SWB相连的Fa0&#x2F;1端口为根端口，也就是SWC的Fa0&#x2F;1</p>
+<li><p>第二步就是选RP（根端口），与网桥相连的非根网桥交换机端口直接写RP，SWB和SWC的Fa0/1的为RP，然后非根网桥SWC有两个端口，每一个非根网桥交换机上有一个根端口，根据规则，我们先比较COST值（这个COST值是交换机到达网桥的和），SWC有两条路可以到SWA，可以知道SWC通过两条路去SWA，COST都是2,cost相同，cost相同的情况下，我们比较SWC对端交换机的BID，什么意思呢，就是SWC有两条路去SWA，一条是通过SWB，一条是SWD，这两个就是SWC的对端，所以确定SWC的根端口，就是比较SWD与SWB的BID（图中优先级相同，MAC地不同），显然B&lt;D，所以SWB的BID小，所以SWC上的与SWB相连的Fa0/1端口为根端口，也就是SWC的Fa0/1</p>
 </li>
-<li><p>第三步就是确定指定端口，按照一个链路一个指定端口，可以知道SWA的两个端口在对应的链路上为指定端口，然后SWB的F0&#x2F;2为指定端口，这是为什么呢，小白理解就是根端口对端的端口就是指定端口，各个端口的情况如下</p>
+<li><p>第三步就是确定指定端口，按照一个链路一个指定端口，可以知道SWA的两个端口在对应的链路上为指定端口，然后SWB的F0/2为指定端口，这是为什么呢，小白理解就是根端口对端的端口就是指定端口，各个端口的情况如下</p>
 </li>
 </ol>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685201613874-1-1685201627292-6.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>所以最后还有SWC与SWD之间还有一条链路，我们说过一条链路必有一个指定端口，那这个指定端口是SWC的端口，还是SWD的端口呢，我们根据COST值越小的越优的原则，SWC去根网桥SWA的COST为2，SWC去SWA有两条路，一条经过SWB，一条经过SWD，但是经过SWD的这条路，SWC有端口在竞选成为什么端口，所以这条路不通，所以SWC的COST为2,那同理SWD去SWA，可以直接去SWA，所以COST值为1，所以SWD的Fa0&#x2F;2端口为指定端口</p>
-<p>最后一步就是确定阻塞端口，不是根端口，也不是指定端口的端口，为阻塞端口，图中就只剩下了一个端口，就是SWC的Fa0&#x2F;2端口，所以为阻塞端口</p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685201613874-1-1685201627292-6.jpg" alt="img"></p>
+<p>所以最后还有SWC与SWD之间还有一条链路，我们说过一条链路必有一个指定端口，那这个指定端口是SWC的端口，还是SWD的端口呢，我们根据COST值越小的越优的原则，SWC去根网桥SWA的COST为2，SWC去SWA有两条路，一条经过SWB，一条经过SWD，但是经过SWD的这条路，SWC有端口在竞选成为什么端口，所以这条路不通，所以SWC的COST为2,那同理SWD去SWA，可以直接去SWA，所以COST值为1，所以SWD的Fa0/2端口为指定端口</p>
+<p>最后一步就是确定阻塞端口，不是根端口，也不是指定端口的端口，为阻塞端口，图中就只剩下了一个端口，就是SWC的Fa0/2端口，所以为阻塞端口</p>
 <p>综上总结几点，</p>
 <ol>
 <li>一个交换机上一个根端口</li>
@@ -644,23 +797,23 @@
 <li>RP与DP确定之后，最后一个就是阻塞端口（BP）</li>
 </ol>
 <p>如果是四边形，有一个RP是比较难确定的，可以直接按照前面说明去选择就好，一定要记住有RP这一条链路上，另外一个端口一定时DP端口</p>
-<h3 id="IP地址聚合运算"><a href="#IP地址聚合运算" class="headerlink" title="IP地址聚合运算"></a>IP地址聚合运算</h3><p>路由聚合路由汇总的“含义”是把一组路由汇聚为单个的路由广播。<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%B7%AF%E7%94%B1%E6%B1%87%E8%81%9A&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">路由汇聚</a>的最终结果和最明显的优点是缩小网络上的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%B7%AF%E7%94%B1%E8%A1%A8&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">路由表</a>的尺寸。</p>
+<h3 id="IP地址聚合运算"><a href="#IP地址聚合运算" class="headerlink" title="IP地址聚合运算"></a>IP地址聚合运算</h3><p>路由聚合路由汇总的“含义”是把一组路由汇聚为单个的路由广播。<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%B7%AF%E7%94%B1%E6%B1%87%E8%81%9A&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">路由汇聚</a>的最终结果和最明显的优点是缩小网络上的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%B7%AF%E7%94%B1%E8%A1%A8&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">路由表</a>的尺寸。</p>
 <p>算法实现</p>
 <p>　　假设下面有4个路由: 　　</p>
-<p>172.18.129.0&#x2F;24 　　</p>
-<p>172.18.130.0&#x2F;24 　　</p>
-<p>172.18.132.0&#x2F;24 　　</p>
-<p>172.18.133.0&#x2F;24 　　</p>
+<p>172.18.129.0/24 　　</p>
+<p>172.18.130.0/24 　　</p>
+<p>172.18.132.0/24 　　</p>
+<p>172.18.133.0/24 　　</p>
 <p>如果这四个进行路由汇聚,</p>
-<p>能覆盖这四个路由的是: 　　172.18.128.0&#x2F;21 　　</p>
+<p>能覆盖这四个路由的是: 　　172.18.128.0/21 　　</p>
 <p>算法为：</p>
-<p>129的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BB%A3%E7%A0%81&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">二进制代码</a>是10000001 　　</p>
+<p>129的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BB%A3%E7%A0%81&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">二进制代码</a>是10000001 　　</p>
 <p>130的二进制代码是10000010 　　</p>
 <p>132的二进制代码是10000100 　　</p>
 <p>133的二进制代码是10000101 　　</p>
-<p>这四个数的前五位相同都是10000，所以加上前面的172.18这两部分相同的位数，<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E7%BD%91%E7%BB%9C%E5%8F%B7&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">网络号</a>就是8+8+5&#x3D;21。</p>
-<p>而10000000的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">十进制数</a>是128，所以，路由汇聚的Ip地址就是172.18.128.0。所以最终答案就是172.18.128.0&#x2F;21</p>
-<h3 id="pconfig-x2F-all-命令查出的信息含义"><a href="#pconfig-x2F-all-命令查出的信息含义" class="headerlink" title="pconfig &#x2F;all 命令查出的信息含义"></a>pconfig &#x2F;all 命令查出的信息含义</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249027466-1-1685249088451-7.jpg" srcset="/img/loading.gif" lazyload alt="12"></p>
+<p>这四个数的前五位相同都是10000，所以加上前面的172.18这两部分相同的位数，<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E7%BD%91%E7%BB%9C%E5%8F%B7&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">网络号</a>就是8+8+5=21。</p>
+<p>而10000000的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">十进制数</a>是128，所以，路由汇聚的Ip地址就是172.18.128.0。所以最终答案就是172.18.128.0/21</p>
+<h3 id="pconfig-x2F-all-命令查出的信息含义"><a href="#pconfig-x2F-all-命令查出的信息含义" class="headerlink" title="pconfig /all 命令查出的信息含义"></a>pconfig /all 命令查出的信息含义</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249027466-1-1685249088451-7.jpg" alt="12"></p>
 <p>两张图片显示的字段大致相同，但是具体的值不一样</p>
 <p>主要信息说明</p>
 <p>Physical Address：物理地址，也就是MAC地址</p>
@@ -669,360 +822,697 @@
 <p>Subnetmask：子网掩码</p>
 <p>Default gateway：默认网关</p>
 <p>DNS servers：DNS服务器</p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image004-1685249083533-4.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image004-1685249083533-4.jpg" alt="img"></p>
 <p>可能考的点：</p>
 <p>1.可能会考上面的字段的含义</p>
 <p>2.重点：会考察Link-local IPv6 address:本地链路IPv6地址，后面紧跟%XX字段的含义。例fe80：：b50b:4bfd:c2d3:2a0c%10中%10是什么含义，可以说是网卡的索引号，也可以说是接口标志符，相当于网卡的编号，两种说法都可</p>
-<p>注意！回去看一下ipconfig &#x2F;all命令的所有内容。要读懂，考试一定会考的。知道每一部分什么意思，干嘛用的？你要读懂。  IP地址，MAC地址，网关，DHCP等。</p>
+<p>注意！回去看一下ipconfig /all命令的所有内容。要读懂，考试一定会考的。知道每一部分什么意思，干嘛用的？你要读懂。  IP地址，MAC地址，网关，DHCP等。</p>
 
                 
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>移动互联网笔记</div>
-      <div>http://freel00p.github.io/2023/05/21/移动互联网笔记/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>FreeL00P</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2023年5月21日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2023/04/17/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AC%94%E8%AE%B0/" title="设计模式笔记">
-                        <span class="hidden-mobile">设计模式笔记</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
             </div>
+            <hr/>
 
             
-  
-  
-    <article id="comments" lazyload>
-      
 
-    </article>
-  
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">FreeL00P</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://freeL00P.github.io/2023/05/21/%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E7%AC%94%E8%AE%B0/">http://freeL00P.github.io/2023/05/21/%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E7%AC%94%E8%AE%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">FreeL00P</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
 
 
-          </article>
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
     </div>
 
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/05/21/%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="移动互联网笔记">
+                        
+                        <span class="card-title">移动互联网笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            FreeL00P
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/04/17/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="设计模式笔记">
+                        
+                        <span class="card-title">设计模式笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            FreeL00P
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
 
 
 
-  </aside>
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
 
 
     </div>
-  </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
 </div>
 
 
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
 
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
 
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
 
-  
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
 
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
     
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">FreeL00P</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
     <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
         </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
+        <div id="searchResult"></div>
     </div>
-  </div>
 </div>
 
-    
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
 
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
     };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
 
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
 </script>
 
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
 
-  
 <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
 </script>
 
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
 
 
-  
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
 </body>
+
 </html>
