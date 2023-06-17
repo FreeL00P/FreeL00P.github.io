@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="Keep Team">
+    <meta name="author" content="FreeL00P">
     
     <title>
         
             移动互联网笔记 |
         
-        Keep Theme
+        FreeL00P
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
@@ -68,7 +68,7 @@
                 </a>
             
             <a class="logo-title" href="/">
-               Keep Theme
+               FreeL00P
             </a>
         </div>
 
@@ -147,7 +147,7 @@
                     </div>
                     <div class="info">
                         <div class="author">
-                            <span class="name">Keep Team</span>
+                            <span class="name">FreeL00P</span>
                             
                                 <span class="author-label">Lv1</span>
                             
@@ -226,7 +226,11 @@
 <p>多生成树原理可以理解为，当一个交换机接收到多个Spanning Tree Protocol（STP）的根节点时，它将会选择一个根节点，并使用相应的生成树来建立活动路径。如果某个链路出现故障，则交换机可以切换到备用路径继续数据传输。</p>
 <p>为了避免在多个生成树之间出现环路，交换机通常会使用虚拟局域网（VLAN）标识符来标识生成树。每个VLAN都可以有一个独立的生成树，从而实现网络冗余和可靠性。</p>
 <p>需要注意的是，多生成树可以在一些情况下增加网络复杂度，并且对于小型网络可能并不必要。因此，在考虑是否使用多生成树时，应该根据实际需求进行评估和选择。</p>
-<figure class="highlight smali"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali">region1<br>	vlan 2 to<span class="hljs-built_in"> instance </span>2<br>	vlan 3 to<span class="hljs-built_in"> instance </span>3<br>	other vlan to ist <br>一个instance就是一个生成树，ist也是生成树<br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">region1
+	vlan 2 to instance 2
+	vlan 3 to instance 3
+	other vlan to ist 
+一个instance就是一个生成树，ist也是生成树<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="链路聚合"><a href="#链路聚合" class="headerlink" title="链路聚合"></a>链路聚合</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521132440447.png" alt="image-20230521132440447"></p>
 <p>圆圈 圈住两条线就是使用了链路聚合技术</p>
@@ -327,10 +331,15 @@
 </li>
 </ol>
 <p><strong>思科配置命令</strong></p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">enable                           // 进入特权用户模式<br>configure terminal               // 进入全局配置模式<br>ip route &lt;目的网段&gt; &lt;子网掩码&gt; &lt;下一跳地址&gt;  // 添加路由表记录<br>no ip route &lt;目的网段&gt; &lt;子网掩码&gt; &lt;下一跳地址&gt; // 删除路由表记录<br>end                              // 退出配置模式<br>show ip route                    // 查看路由表<br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">enable</span>                           // 进入特权用户模式
+configure terminal               // 进入全局配置模式
+<span class="token function">ip</span> route <span class="token operator">&lt;</span>目的网段<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>子网掩码<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>下一跳地址<span class="token operator">&gt;</span>  // 添加路由表记录
+no <span class="token function">ip</span> route <span class="token operator">&lt;</span>目的网段<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>子网掩码<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>下一跳地址<span class="token operator">&gt;</span> // 删除路由表记录
+end                              // 退出配置模式
+show <span class="token function">ip</span> route                    // 查看路由表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>例如，添加一条默认路由，将所有未知目的地址转发到网关 192.168.0.1：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ip route 0.0.0.0 0.0.0.0 192.168.0.1<br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ip</span> route <span class="token number">0.0</span>.0.0 <span class="token number">0.0</span>.0.0 <span class="token number">192.168</span>.0.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理"><a href="#OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理" class="headerlink" title="OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理"></a>OSPF（开放式最短路径优先）多区域路由表，理解特殊区域的原理</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521134553253.png" alt="image-20230521134553253"></p>
 <ol>
@@ -427,30 +436,59 @@
 <ol>
 <li>在A和B的接口上开启OSPF协议</li>
 </ol>
-<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-constructor">A(<span class="hljs-params">config</span>)</span># interface GigabitEthernet0/<span class="hljs-number">0</span><br><span class="hljs-constructor">A(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># ip address <span class="hljs-number">192.168</span>.<span class="hljs-number">1.1</span> <span class="hljs-number">255.255</span>.<span class="hljs-number">255.0</span><br><span class="hljs-constructor">A(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># ip ospf network broadcast<br><span class="hljs-constructor">A(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># no shutdown<br><br><span class="hljs-constructor">B(<span class="hljs-params">config</span>)</span># interface GigabitEthernet0/<span class="hljs-number">0</span><br><span class="hljs-constructor">B(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># ip address <span class="hljs-number">192.168</span>.<span class="hljs-number">1.2</span> <span class="hljs-number">255.255</span>.<span class="hljs-number">255.0</span><br><span class="hljs-constructor">B(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># ip ospf network broadcast<br><span class="hljs-constructor">B(<span class="hljs-params">config</span>-<span class="hljs-params">if</span>)</span># no shutdown<br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">A(config)# interface GigabitEthernet0/0
+A(config-if)# ip address 192.168.1.1 255.255.255.0
+A(config-if)# ip ospf network broadcast
+A(config-if)# no shutdown
+
+B(config)# interface GigabitEthernet0/0
+B(config-if)# ip address 192.168.1.2 255.255.255.0
+B(config-if)# ip ospf network broadcast
+B(config-if)# no shutdown<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>其中，GigabitEthernet0/0是连接A和B的接口类型和编号。</p>
 <ol start="2">
 <li>在 OSPF 进程中配置OSPF参数</li>
 </ol>
-<figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-built_in">A</span>(config)<span class="hljs-meta"># router ospf 1</span><br><span class="hljs-built_in">B</span>(config)<span class="hljs-meta"># router ospf 1</span><br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">A(config)# router ospf 1
+B(config)# router ospf 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>此处我们指定了进程号为1，A和B的进程号需要保持一致。</p>
 <ol start="3">
 <li>配置Router ID</li>
 </ol>
-<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-constructor">A(<span class="hljs-params">config</span>-<span class="hljs-params">router</span>)</span># router-id <span class="hljs-number">1.1</span>.<span class="hljs-number">1.1</span><br><span class="hljs-constructor">B(<span class="hljs-params">config</span>-<span class="hljs-params">router</span>)</span># router-id <span class="hljs-number">2.2</span>.<span class="hljs-number">2.2</span><br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">A(config-router)# router-id 1.1.1.1
+B(config-router)# router-id 2.2.2.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>在本示例中，A设备的ID号为1.1.1.1，B设备的ID号为2.2.2.2。请注意，这两个号必须唯一，建议在使用IP地址作为ID时，确保地址唯一以避免冲突。</p>
 <ol start="4">
 <li>配置区域</li>
 </ol>
-<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">A</span>(config-router)# network <span class="hljs-number">192.168.1.0</span> <span class="hljs-number">0.0.0.255</span> area <span class="hljs-number">0</span><br><span class="hljs-attribute">B</span>(config-router)# network <span class="hljs-number">192.168.1.0</span> <span class="hljs-number">0.0.0.255</span> area <span class="hljs-number">0</span><br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">A(config-router)# network 192.168.1.0 0.0.0.255 area 0
+B(config-router)# network 192.168.1.0 0.0.0.255 area 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">Router OSPF 100(相当于启动OSPF，进程号100)<br>（Router id X.X.X.X（X不超过255就行，可以1.1.1.1））<br>    network 192.168.2.0 0.0.0.255 area 0<br>    network 192.168.3.0 0.0.0.255 area 0<br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Router OSPF <span class="token number">100</span><span class="token punctuation">(</span>相当于启动OSPF，进程号100<span class="token punctuation">)</span>
+（Router <span class="token function">id</span> X.X.X.X（X不超过255就行，可以1.1.1.1））
+    network <span class="token number">192.168</span>.2.0 <span class="token number">0.0</span>.0.255 area <span class="token number">0</span>
+    network <span class="token number">192.168</span>.3.0 <span class="token number">0.0</span>.0.255 area <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="理解IPV6地址的类型"><a href="#理解IPV6地址的类型" class="headerlink" title="理解IPV6地址的类型"></a>理解IPV6地址的类型</h3><p>以下是一些IPv6地址类型的示例：</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 单播地址：<br><span class="hljs-bullet">-</span> 全球单播地址：2001:0db8:85a3:0000:0000:8a2e:0370:7334<br><span class="hljs-bullet">-</span> 唯一本地单播地址：fc00:0000:0000:0000:8def:1234:5678:9012<br><span class="hljs-bullet">2.</span> 组播地址：<br><span class="hljs-bullet">-</span> 全球组播地址：ff0e:0:0:0:0:0:fdd4:90c4<br><span class="hljs-bullet">-</span> 唯一本地组播地址：ff01:0:0:0:0:0:0:1<br><span class="hljs-bullet">3.</span> 任播地址：<br><span class="hljs-bullet">-</span> 全球任播地址：2001:0db8:85a3::/48<br><span class="hljs-bullet">-</span> 唯一本地任播地址：fe80:0:0:0:aa:bb:cc:dd/64<br><span class="hljs-bullet">4.</span> 回环地址：<br><span class="hljs-bullet">-</span> ::1<br><span class="hljs-bullet">5.</span> 零地址：<br><span class="hljs-bullet">-</span> ::<br><span class="hljs-bullet">6.</span> 文本地址：<br><span class="hljs-bullet">-</span> 域名服务器：2001:db8::53<br><span class="hljs-bullet">-</span> 网络时钟：2001:db8::101:cd00:99:ee00<br></code></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1. 单播地址：
+- 全球单播地址：2001:0db8:85a3:0000:0000:8a2e:0370:7334
+- 唯一本地单播地址：fc00:0000:0000:0000:8def:1234:5678:9012
+2. 组播地址：
+- 全球组播地址：ff0e:0:0:0:0:0:fdd4:90c4
+- 唯一本地组播地址：ff01:0:0:0:0:0:0:1
+3. 任播地址：
+- 全球任播地址：2001:0db8:85a3::/48
+- 唯一本地任播地址：fe80:0:0:0:aa:bb:cc:dd/64
+4. 回环地址：
+- ::1
+5. 零地址：
+- ::
+6. 文本地址：
+- 域名服务器：2001:db8::53
+- 网络时钟：2001:db8::101:cd00:99:ee00<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="广播域的范围和VLAN的划分"><a href="#广播域的范围和VLAN的划分" class="headerlink" title="广播域的范围和VLAN的划分"></a>广播域的范围和VLAN的划分</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230521215736892.png" alt="image-20230521215736892"></p>
 <ol>
@@ -550,7 +588,7 @@
 <li>RP与DP确定之后，最后一个就是阻塞端口（BP）</li>
 </ol>
 <p>如果是四边形，有一个RP是比较难确定的，可以直接按照前面说明去选择就好，一定要记住有RP这一条链路上，另外一个端口一定时DP端口</p>
-<h3 id="IP地址聚合运算"><a href="#IP地址聚合运算" class="headerlink" title="IP地址聚合运算"></a>IP地址聚合运算</h3><p>路由聚合路由汇总的“含义”是把一组路由汇聚为单个的路由广播。<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%B7%AF%E7%94%B1%E6%B1%87%E8%81%9A&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">路由汇聚</a>的最终结果和最明显的优点是缩小网络上的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%B7%AF%E7%94%B1%E8%A1%A8&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">路由表</a>的尺寸。</p>
+<h3 id="IP地址聚合运算"><a href="#IP地址聚合运算" class="headerlink" title="IP地址聚合运算"></a>IP地址聚合运算</h3><p>路由聚合路由汇总的“含义”是把一组路由汇聚为单个的路由广播。<a class="link" target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%B7%AF%E7%94%B1%E6%B1%87%E8%81%9A&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">路由汇聚<i class="fas fa-external-link-alt"></i></a>的最终结果和最明显的优点是缩小网络上的<a class="link" target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%B7%AF%E7%94%B1%E8%A1%A8&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">路由表<i class="fas fa-external-link-alt"></i></a>的尺寸。</p>
 <p>算法实现</p>
 <p>　　假设下面有4个路由: 　　</p>
 <p>172.18.129.0/24 　　</p>
@@ -560,12 +598,12 @@
 <p>如果这四个进行路由汇聚,</p>
 <p>能覆盖这四个路由的是: 　　172.18.128.0/21 　　</p>
 <p>算法为：</p>
-<p>129的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BB%A3%E7%A0%81&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">二进制代码</a>是10000001 　　</p>
+<p>129的<a class="link" target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BB%A3%E7%A0%81&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">二进制代码<i class="fas fa-external-link-alt"></i></a>是10000001 　　</p>
 <p>130的二进制代码是10000010 　　</p>
 <p>132的二进制代码是10000100 　　</p>
 <p>133的二进制代码是10000101 　　</p>
-<p>这四个数的前五位相同都是10000，所以加上前面的172.18这两部分相同的位数，<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E7%BD%91%E7%BB%9C%E5%8F%B7&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">网络号</a>就是8+8+5=21。</p>
-<p>而10000000的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">十进制数</a>是128，所以，路由汇聚的Ip地址就是172.18.128.0。所以最终答案就是172.18.128.0/21</p>
+<p>这四个数的前五位相同都是10000，所以加上前面的172.18这两部分相同的位数，<a class="link" target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E7%BD%91%E7%BB%9C%E5%8F%B7&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">网络号<i class="fas fa-external-link-alt"></i></a>就是8+8+5=21。</p>
+<p>而10000000的<a class="link" target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:349286692%7D">十进制数<i class="fas fa-external-link-alt"></i></a>是128，所以，路由汇聚的Ip地址就是172.18.128.0。所以最终答案就是172.18.128.0/21</p>
 <h3 id="pconfig-x2F-all-命令查出的信息含义"><a href="#pconfig-x2F-all-命令查出的信息含义" class="headerlink" title="pconfig /all 命令查出的信息含义"></a>pconfig /all 命令查出的信息含义</h3><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/clip_image002-1685249027466-1-1685249088451-7.jpg" alt="12"></p>
 <p>两张图片显示的字段大致相同，但是具体的值不一样</p>
 <p>主要信息说明</p>
@@ -657,7 +695,7 @@
             2023
             
                 &nbsp;<i class="fas fa-heart icon-animate"></i>
-                &nbsp;<a href="/">Keep Team</a>
+                &nbsp;<a href="/">FreeL00P</a>
             
         </div>
         
