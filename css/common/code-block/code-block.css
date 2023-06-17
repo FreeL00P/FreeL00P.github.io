@@ -75,12 +75,14 @@
   font-weight: 600;
   font-size: 0.9rem;
   font-family: "Source Code Pro", consolas, Menlo;
+  color: var(--text-color-3);
 }
 .highlight-container .code-tools-box .tool {
   cursor: pointer;
 }
 .highlight-container .code-tools-box .tool i {
   font-size: 0.8rem;
+  color: var(--text-color-3);
 }
 .highlight-container .code-tools-box .fold {
   padding: 0 0.4rem 0 0.2rem;

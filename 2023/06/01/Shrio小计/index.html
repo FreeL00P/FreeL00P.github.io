@@ -277,7 +277,7 @@
                 
 
                 <h1 id="Shiro"><a href="#Shiro" class="headerlink" title="Shiro"></a>Shiro</h1><p><strong>shiro暂不支持springboot 3.x</strong></p>
-<h2 id="认证过程"><a href="#认证过程" class="headerlink" title="认证过程"></a>认证过程</h2><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/img.png" alt="img.png"><br>流程如下：</p>
+<h2 id="认证过程"><a href="#认证过程" class="headerlink" title="认证过程"></a>认证过程</h2><p><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/img.png"><br>流程如下：</p>
 <ol>
 <li>首先调用 Subject.login(token) 进行登录，其会自动委托给 Security Manager，调用之前必须通过 SecurityUtils.setSecurityManager() 设置；</li>
 <li>SecurityManager 负责真正的身份验证逻辑；它会委托给 Authenticator 进行身份验证；</li>
@@ -285,7 +285,7 @@
 <li>Authenticator 可能会委托给相应的 AuthenticationStrategy 进行多 Realm 身份验证，默认 ModularRealmAuthenticator 会调用 AuthenticationStrategy 进行多 Realm 身份验证；</li>
 <li>Authenticator 会把相应的 token 传入 Realm，从 Realm 获取身份验证信息，如果没有返回 / 抛出异常表示身份验证失败了。此处可以配置多个 Realm，将按照相应的顺序及策略进行访问。</li>
 </ol>
-<h2 id="授权过程"><a href="#授权过程" class="headerlink" title="授权过程"></a>授权过程</h2><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/v2-66b6458df10fd05db4aea732b0199080_1440w.webp" alt="img"></p>
+<h2 id="授权过程"><a href="#授权过程" class="headerlink" title="授权过程"></a>授权过程</h2><p><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/v2-66b6458df10fd05db4aea732b0199080_1440w.webp"></p>
 <p>使用自定义realm</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyRealm</span> <span class="token keyword">extends</span> <span class="token class-name">AuthorizingRealm</span><span class="token punctuation">{</span>
     <span class="token comment">/**
@@ -417,14 +417,14 @@
 <p><strong>输出</strong></p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">原始密码是 123456 , 盐是： f5GQZsuWjnL9z585JjLrbQ==, 运算次数是： 2, 运算出来的密文是：55fee80f73537cefd6b3c9a920993c25 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="Shiro三大核心组件"><a href="#Shiro三大核心组件" class="headerlink" title="Shiro三大核心组件"></a>Shiro三大核心组件</h2><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230531200232621.png" alt="image-20230531200232621"></p>
+<h2 id="Shiro三大核心组件"><a href="#Shiro三大核心组件" class="headerlink" title="Shiro三大核心组件"></a>Shiro三大核心组件</h2><p><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230531200232621.png"></p>
 <p>即<code>Subject</code>、<code>SecurityManager</code> 和 <code>Realm</code></p>
 <ol>
 <li>Subject: 为<code>认证主体</code>。应用代码直接交互的对象是Subject,Subject代表了当前的用户。包含<code>Principals</code>和<code>Credentials</code>两个信息。</li>
 <li>SecurityManager:为<code>安全管理员</code>。是Shiro架构的核心。与Subject的所有交互都会委托给SecurityManager, Subject相当于是一个门面，而SecurityManager才是真正的执行者。它负责与Shiro 的其他组件进行交互。</li>
 <li>Realm：是<code>一个域</code>。充当了Shiro与应用安全数据间的“桥梁”。Shiro从Realm中获取安全数据（如用户、角色、权限），就是说SecurityManager要验证用户身份，那么它需要从Realm中获取相应的用户进行比较，来确定用户的身份是否合法；也需要从Realm得到用户相应的角色、权限，进行验证用户的操作是否能过进行，可以把Realm看成DataSource，即安全数据源。</li>
 </ol>
-<h2 id="Shiro架构"><a href="#Shiro架构" class="headerlink" title="Shiro架构"></a>Shiro架构</h2><p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230531155008026.png" alt="image-20230531155008026"></p>
+<h2 id="Shiro架构"><a href="#Shiro架构" class="headerlink" title="Shiro架构"></a>Shiro架构</h2><p><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20230531155008026.png"></p>
 <ul>
 <li><code>Authentication</code>: 身份认证、登录，验证用户是不是拥有相应的身份;</li>
 <li><code>Authorization</code>:授权,即权限验证，验证某个已认证的用户是否拥有某个权限，即判断用户能否进行什么操作，如:验证某个用户是否拥有某个角色，或者细粒度的验证某个用户对某个资源是否具有某个权限!</li>
@@ -438,7 +438,7 @@
 <li><code>Remember Me</code>:记住我，这个是非常常见的功能，即一-次登录后， 下次再来的话不用登录了</li>
 </ul>
 <p><strong>内部架构</strong></p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/8991ce3120e94c9baccc4aae76666875tplv-k3u1fbpfcp-zoom-in-crop-mark4536000.webp" alt="在这里插入图片描述"></p>
+<p><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/8991ce3120e94c9baccc4aae76666875tplv-k3u1fbpfcp-zoom-in-crop-mark4536000.webp"></p>
 <ul>
 <li><code>Subject</code>: 任何可以与应用交互的用户;</li>
 <li><code>Security Manager</code>:相当于SpringMVC中的<code>DispatcherSerlet</code>; 是Shiro的<code>心脏</code>， 所有具体的交互都通过<code>Security Manager</code>进行控制，它管理者所有的Subject, 且负责进行认证,授权，会话，及缓存的管理。</li>
