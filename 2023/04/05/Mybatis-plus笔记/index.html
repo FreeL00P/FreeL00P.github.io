@@ -1,318 +1,221 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="FreeL00P">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="一、MyBatis-Plus1.简介MyBatis-Plus (opens new window)（简称 MP）是一个 MyBatis (opens new window)的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。  我们的愿景是成为 MyBatis 最好的搭档，就像 魂斗罗 中的 1P、2P，基友搭配，效率翻倍。   2.特性 无侵入：只做增强不做改变，">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Mybatis-plus笔记">
-<meta property="og:url" content="http://freel00p.github.io/2023/04/05/Mybatis-plus%E7%AC%94%E8%AE%B0/index.html">
-<meta property="og:site_name" content="跳动的音符">
-<meta property="og:description" content="一、MyBatis-Plus1.简介MyBatis-Plus (opens new window)（简称 MP）是一个 MyBatis (opens new window)的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。  我们的愿景是成为 MyBatis 最好的搭档，就像 魂斗罗 中的 1P、2P，基友搭配，效率翻倍。   2.特性 无侵入：只做增强不做改变，">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/relationship-with-mybatis.png">
-<meta property="article:published_time" content="2023-04-05T15:31:37.000Z">
-<meta property="article:modified_time" content="2023-06-01T11:58:34.744Z">
-<meta property="article:author" content="FreeL00P">
-<meta property="article:tag" content="mysql">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/relationship-with-mybatis.png">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>Mybatis-plus笔记 - 跳动的音符</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Keep Team">
+    
+    <title>
+        
+            Mybatis-plus笔记 |
+        
+        Keep Theme
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
 
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
 
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"freel00p.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"freel00p.github.io","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":false,"preload":false},"code_copy":{},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  
 <meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
 
 <body>
-  
-
-  <header>
+<div class="progress-bar-container">
     
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>自由频率</strong>
-    </a>
+    
+</div>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Keep Theme
             </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://www.dmoe.cc/random.php') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="Mybatis-plus笔记"></span>
-          
         </div>
 
-        
-          
-  <div class="mt-3">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-author" aria-hidden="true"></i>
-        FreeL00P
-      </span>
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-05 23:31" pubdate>
-          2023年4月5日 晚上
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          30k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          252 分钟
-        
-      </span>
-    
-
-    
-    
-      
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> 次
-        </span>
-        
-      
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Mybatis-plus笔记</h1>
-            
-            
-              <div class="markdown-body">
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
                 
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Mybatis-plus笔记</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Keep Team</span>
+                            
+                                <span class="author-label">Lv1</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-04-05 23:31:37</span>
+        <span class="mobile">2023-04-05 23:31</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-06-01 19:58:34</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/java%E5%90%8E%E7%AB%AF/">java后端</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/java%E5%90%8E%E7%AB%AF/%E6%8C%81%E4%B9%85%E5%B1%82/">持久层</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/mysql/">mysql</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
                 <h1 id="一、MyBatis-Plus"><a href="#一、MyBatis-Plus" class="headerlink" title="一、MyBatis-Plus"></a>一、MyBatis-Plus</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p><a target="_blank" rel="noopener" href="https://github.com/baomidou/mybatis-plus">MyBatis-Plus (opens new window)</a>（简称 MP）是一个 <a target="_blank" rel="noopener" href="https://www.mybatis.org/mybatis-3/">MyBatis (opens new window)</a>的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
 <blockquote>
 <p>我们的愿景是成为 MyBatis 最好的搭档，就像 <a target="_blank" rel="noopener" href="https://baomidou.com/img/contra.jpg">魂斗罗</a> 中的 1P、2P，基友搭配，效率翻倍。</p>
 </blockquote>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/relationship-with-mybatis.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/relationship-with-mybatis.png" alt="img"></p>
 <h2 id="2-特性"><a href="#2-特性" class="headerlink" title="2.特性"></a>2.特性</h2><ul>
 <li><strong>无侵入</strong>：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑</li>
 <li><strong>损耗小</strong>：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作</li>
@@ -334,7 +237,7 @@
 <li>MySQL，Oracle，DB2，H2，HSQL，SQLite，PostgreSQL，SQLServer，Phoenix，Gauss ，ClickHouse，Sybase，OceanBase，Firebird，Cubrid，Goldilocks，csiidb</li>
 <li>达梦数据库，虚谷数据库，人大金仓数据库，南大通用(华库)数据库，南大通用数据库，神通数据库，瀚高数据库</li>
 </ul>
-<h2 id="4-框架结构"><a href="#4-框架结构" class="headerlink" title="4.框架结构"></a>4.框架结构</h2><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/mybatis-plus-framework.jpg" srcset="/img/loading.gif" lazyload alt="framework" style="zoom:50%;">
+<h2 id="4-框架结构"><a href="#4-框架结构" class="headerlink" title="4.框架结构"></a>4.框架结构</h2><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/mybatis-plus-framework.jpg" alt="framework" style="zoom:50%;">
 
 
 
@@ -360,19 +263,19 @@
 </ul>
 <h2 id="3-创建工程"><a href="#3-创建工程" class="headerlink" title="3.创建工程"></a>3.创建工程</h2><ul>
 <li><p><strong>使用<code>Spring Initializer</code>快速初始化一个 Spring Boot 工程</strong></p>
-<img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20220519140839640.png" srcset="/img/loading.gif" lazyload alt="image-20220519140839640" style="zoom:80%;">
+<img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20220519140839640.png" alt="image-20220519140839640" style="zoom:80%;">
 
-<img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220519141335981.png" srcset="/img/loading.gif" lazyload alt="image-20220519141335981" style="zoom:80%;">
+<img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220519141335981.png" alt="image-20220519141335981" style="zoom:80%;">
 
-<img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220519141737405.png" srcset="/img/loading.gif" lazyload alt="image-20220519141737405" style="zoom:80%;">
+<img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220519141737405.png" alt="image-20220519141737405" style="zoom:80%;">
 
-<img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220519141849937.png" srcset="/img/loading.gif" lazyload alt="image-20220519141849937" style="zoom:80%;">
+<img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220519141849937.png" alt="image-20220519141849937" style="zoom:80%;">
 </li>
 <li><p><strong>引入<code>MyBatis-Plus</code>的依赖</strong></p>
 <figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.baomidou<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.5.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>安装<code>Lombok</code>插件</strong></p>
-<img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220519143257305.png" srcset="/img/loading.gif" lazyload alt="image-20220519143257305" style="zoom:80%;"></li>
+<img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220519143257305.png" alt="image-20220519143257305" style="zoom:80%;"></li>
 </ul>
 <h2 id="4-配置编码"><a href="#4-配置编码" class="headerlink" title="4.配置编码"></a>4.配置编码</h2><ul>
 <li><p><strong>配置<code>application.yml</code>文件</strong></p>
@@ -392,7 +295,7 @@
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyBatisPlusTest</span> {<br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> UserMapper userMapper;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 测试查询所有数据</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">testSelectList</span><span class="hljs-params">()</span>{<br>        <span class="hljs-comment">//通过条件构造器查询一个list集合，若没有条件，则可以设置null为参数</span><br>        List&lt;User&gt; users = userMapper.selectList(<span class="hljs-literal">null</span>);<br>        users.forEach(System.out::println);<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>控制台打印查询结果</strong></p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220519150454211.png" srcset="/img/loading.gif" lazyload alt="image-20220519150454211"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220519150454211.png" alt="image-20220519150454211"></p>
 </li>
 </ul>
 <h1 id="三、增删改查"><a href="#三、增删改查" class="headerlink" title="三、增删改查"></a>三、增删改查</h1><h2 id="1-BaseMapper-lt-T-gt"><a href="#1-BaseMapper-lt-T-gt" class="headerlink" title="1.BaseMapper<T>"></a>1.BaseMapper&lt;T&gt;</h2><blockquote>
@@ -557,10 +460,10 @@
 </blockquote>
 <ul>
 <li><p>我们将表<code>user</code>更名为<code>t_user</code>，测试查询功能</p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520093844842.png" srcset="/img/loading.gif" lazyload alt="image-20220520093844842"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520093844842.png" alt="image-20220520093844842"></p>
 </li>
 <li><p>程序抛出异常，<strong>Table ‘mybatis_plus.user’ doesn’t exist</strong>，因为现在的表名为<code>t_user</code>，而默认操作的表名和实体类型的类名一致，即<code>user</code>表</p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520094126411.png" srcset="/img/loading.gif" lazyload alt="image-20220520094126411"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520094126411.png" alt="image-20220520094126411"></p>
 </li>
 </ul>
 <h3 id="1-2解决问题"><a href="#1-2解决问题" class="headerlink" title="1.2	解决问题"></a>1.2	解决问题</h3><hr>
@@ -589,11 +492,11 @@
 </blockquote>
 <ul>
 <li><p>我们实体类中的属性<code>id</code>改为<code>uid</code>，将表中的字段<code>id</code>也改为<code>uid</code>，测试添加功能</p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520100939157.png" srcset="/img/loading.gif" lazyload alt="image-20220520100939157"></p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520100715109.png" srcset="/img/loading.gif" lazyload alt="image-20220520100715109"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520100939157.png" alt="image-20220520100939157"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520100715109.png" alt="image-20220520100715109"></p>
 </li>
 <li><p>程序抛出异常，<strong>Field ‘uid’ doesn’t have a default value</strong>，说明MyBatis-Plus没有将<code>uid</code>作为主键赋值</p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520101317761.png" srcset="/img/loading.gif" lazyload alt="image-20220520101317761"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520101317761.png" alt="image-20220520101317761"></p>
 </li>
 </ul>
 <h3 id="2-2解决问题"><a href="#2-2解决问题" class="headerlink" title="2.2	解决问题"></a>2.2	解决问题</h3><hr>
@@ -608,7 +511,7 @@
 <blockquote>
 <p>若实体类中主键对应的属性为id，而表中表示主键的字段为uid，此时若只在属性id上添加注解@TableId，则抛出异常**Unknown column ‘id’ in ‘field list’**，即MyBatis-Plus仍然会将id作为表的主键操作，而表中表示主键的是字段uid此时需要通过@TableId注解的value属性，指定表中的主键字段，<code>@TableId("uid")</code>或<code>@TableId(value="uid")</code></p>
 </blockquote>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520103030977.png" srcset="/img/loading.gif" lazyload alt="image-20220520103030977"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520103030977.png" alt="image-20220520103030977"></p>
 <h3 id="2-4-TableId的type属性"><a href="#2-4-TableId的type属性" class="headerlink" title="2.4	@TableId的type属性"></a>2.4	@TableId的type属性</h3><hr>
 <blockquote>
 <p><strong>type属性用来定义主键策略：默认雪花算法</strong></p>
@@ -663,21 +566,21 @@
 <h3 id="4-2实现逻辑删除"><a href="#4-2实现逻辑删除" class="headerlink" title="4.2	实现逻辑删除"></a>4.2	实现逻辑删除</h3><hr>
 <ul>
 <li><p><strong>数据库中创建逻辑删除状态列，设置默认值为0</strong></p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520134529809.png" srcset="/img/loading.gif" lazyload alt="image-20220520134529809"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520134529809.png" alt="image-20220520134529809"></p>
 </li>
 <li><p><strong>实体类中添加逻辑删除属性</strong></p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520134636112.png" srcset="/img/loading.gif" lazyload alt="image-20220520134636112"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520134636112.png" alt="image-20220520134636112"></p>
 </li>
 <li><p><strong>测试删除功能，真正执行的是修改</strong></p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testDeleteById</span><span class="hljs-params">()</span>{<br>    <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> userMapper.deleteById(<span class="hljs-number">1527472864163348482L</span>);<br>    System.out.println(result &gt; <span class="hljs-number">0</span> ? <span class="hljs-string">"删除成功！"</span> : <span class="hljs-string">"删除失败！"</span>);<br>    System.out.println(<span class="hljs-string">"受影响的行数为："</span> + result);<br>}<br></code></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520135637388.png" srcset="/img/loading.gif" lazyload alt="image-20220520135637388"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520135637388.png" alt="image-20220520135637388"></p>
 </li>
 <li><p><strong>此时执行查询方法，查询的结果为自动添加条件<code>is_deleted=0</code></strong></p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520140036445.png" srcset="/img/loading.gif" lazyload alt="image-20220520140036445"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220520140036445.png" alt="image-20220520140036445"></p>
 </li>
 </ul>
-<h1 id="五、条件构造器"><a href="#五、条件构造器" class="headerlink" title="五、条件构造器"></a>五、条件构造器</h1><h2 id="1-Wrapper介绍"><a href="#1-Wrapper介绍" class="headerlink" title="1.Wrapper介绍"></a>1.Wrapper介绍</h2><p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220521092812125.png" srcset="/img/loading.gif" lazyload alt="image-20220521092812125"></p>
+<h1 id="五、条件构造器"><a href="#五、条件构造器" class="headerlink" title="五、条件构造器"></a>五、条件构造器</h1><h2 id="1-Wrapper介绍"><a href="#1-Wrapper介绍" class="headerlink" title="1.Wrapper介绍"></a>1.Wrapper介绍</h2><p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220521092812125.png" alt="image-20220521092812125"></p>
 <ul>
 <li><p><code>Wrapper</code> ： 条件构造抽象类，最顶端父类</p>
 <ul>
@@ -841,7 +744,7 @@
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testProduct01</span><span class="hljs-params">()</span>{<br>    <span class="hljs-comment">//1.小李获取商品价格</span><br>    <span class="hljs-type">Product</span> <span class="hljs-variable">productLi</span> <span class="hljs-operator">=</span> productMapper.selectById(<span class="hljs-number">1</span>);<br>    System.out.println(<span class="hljs-string">"小李获取的商品价格为："</span> + productLi.getPrice());<br><br>    <span class="hljs-comment">//2.小王获取商品价格</span><br>    <span class="hljs-type">Product</span> <span class="hljs-variable">productWang</span> <span class="hljs-operator">=</span> productMapper.selectById(<span class="hljs-number">1</span>);<br>    System.out.println(<span class="hljs-string">"小李获取的商品价格为："</span> + productWang.getPrice());<br><br>    <span class="hljs-comment">//3.小李修改商品价格+50</span><br>    productLi.setPrice(productLi.getPrice()+<span class="hljs-number">50</span>);<br>    productMapper.updateById(productLi);<br><br>    <span class="hljs-comment">//4.小王修改商品价格-30</span><br>    productWang.setPrice(productWang.getPrice()-<span class="hljs-number">30</span>);<br>    productMapper.updateById(productWang);<br><br>    <span class="hljs-comment">//5.老板查询商品价格</span><br>    <span class="hljs-type">Product</span> <span class="hljs-variable">productBoss</span> <span class="hljs-operator">=</span> productMapper.selectById(<span class="hljs-number">1</span>);<br>    System.out.println(<span class="hljs-string">"老板获取的商品价格为："</span> + productBoss.getPrice());<br>}<br></code></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>执行结果</strong></p>
-<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20220521225803162.png" srcset="/img/loading.gif" lazyload alt="image-20220521225803162"></p>
+<p><img src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20220521225803162.png" alt="image-20220521225803162"></p>
 </li>
 </ul>
 <h3 id="3-4乐观锁解决问题"><a href="#3-4乐观锁解决问题" class="headerlink" title="3.4	乐观锁解决问题"></a>3.4	乐观锁解决问题</h3><hr>
@@ -871,7 +774,7 @@
 <li><p><strong>优化执行流程</strong></p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testProduct01</span><span class="hljs-params">()</span>{<br>    <span class="hljs-comment">//1.小李获取商品价格</span><br>    <span class="hljs-type">Product</span> <span class="hljs-variable">productLi</span> <span class="hljs-operator">=</span> productMapper.selectById(<span class="hljs-number">1</span>);<br>    System.out.println(<span class="hljs-string">"小李获取的商品价格为："</span> + productLi.getPrice());<br><br>    <span class="hljs-comment">//2.小王获取商品价格</span><br>    <span class="hljs-type">Product</span> <span class="hljs-variable">productWang</span> <span class="hljs-operator">=</span> productMapper.selectById(<span class="hljs-number">1</span>);<br>    System.out.println(<span class="hljs-string">"小李获取的商品价格为："</span> + productWang.getPrice());<br><br>    <span class="hljs-comment">//3.小李修改商品价格+50</span><br>    productLi.setPrice(productLi.getPrice()+<span class="hljs-number">50</span>);<br>    productMapper.updateById(productLi);<br><br>    <span class="hljs-comment">//4.小王修改商品价格-30</span><br>    productWang.setPrice(productWang.getPrice()-<span class="hljs-number">30</span>);<br>    <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> productMapper.updateById(productWang);<br>    <span class="hljs-keyword">if</span>(result == <span class="hljs-number">0</span>){<br>        <span class="hljs-comment">//操作失败，重试</span><br>        <span class="hljs-type">Product</span> <span class="hljs-variable">productNew</span> <span class="hljs-operator">=</span> productMapper.selectById(<span class="hljs-number">1</span>);<br>        productNew.setPrice(productNew.getPrice()-<span class="hljs-number">30</span>);<br>        productMapper.updateById(productNew);<br>    }<br><br>    <span class="hljs-comment">//5.老板查询商品价格</span><br>    <span class="hljs-type">Product</span> <span class="hljs-variable">productBoss</span> <span class="hljs-operator">=</span> productMapper.selectById(<span class="hljs-number">1</span>);<br>    System.out.println(<span class="hljs-string">"老板获取的商品价格为："</span> + productBoss.getPrice());<br>}<br></code></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220521230448577.png" srcset="/img/loading.gif" lazyload alt="image-20220521230448577"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220521230448577.png" alt="image-20220521230448577"></p>
 </li>
 </ul>
 <h1 id="七、通用枚举"><a href="#七、通用枚举" class="headerlink" title="七、通用枚举"></a>七、通用枚举</h1><blockquote>
@@ -879,7 +782,7 @@
 </blockquote>
 <ul>
 <li><p><strong>数据库表添加字段<code>sex</code></strong></p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220521231317777.png" srcset="/img/loading.gif" lazyload alt="image-20220521231317777"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220521231317777.png" alt="image-20220521231317777"></p>
 </li>
 <li><p><strong>创建通用枚举类型</strong></p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Getter</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">SexEnum</span> {<br>    MALE(<span class="hljs-number">1</span>, <span class="hljs-string">"男"</span>),<br>    FEMALE(<span class="hljs-number">2</span>, <span class="hljs-string">"女"</span>);<br><br>    <span class="hljs-meta">@EnumValue</span> <span class="hljs-comment">//将注解所标识的属性的值存储到数据库中</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> sex;<br>    <span class="hljs-keyword">private</span> String sexName;<br><br>    SexEnum(Integer sex, String sexName) {<br>        <span class="hljs-built_in">this</span>.sex = sex;<br>        <span class="hljs-built_in">this</span>.sexName = sexName;<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
@@ -948,7 +851,7 @@
 </blockquote>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TestDatasourceApplicationTests</span> {<br>	<span class="hljs-meta">@Resource</span><br>	UserService userService;<br><br>	<span class="hljs-meta">@Resource</span><br>	ProductService productService;<br><br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-keyword">void</span> <span class="hljs-title function_">contextLoads</span><span class="hljs-params">()</span> {<br>		<span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> userService.getById(<span class="hljs-number">1L</span>);<br>		<span class="hljs-type">Product</span> <span class="hljs-variable">product</span> <span class="hljs-operator">=</span> productService.getById(<span class="hljs-number">1L</span>);<br>		System.out.println(<span class="hljs-string">"User = "</span> + user);<br>		System.out.println(<span class="hljs-string">"Product = "</span> + product);<br>	}<br><br>}<br></code></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522113049945.png" srcset="/img/loading.gif" lazyload alt="image-20220522113049945"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522113049945.png" alt="image-20220522113049945"></p>
 <h1 id="九、MyBatisX插件"><a href="#九、MyBatisX插件" class="headerlink" title="九、MyBatisX插件"></a>九、MyBatisX插件</h1><blockquote>
 <p>MyBatis-Plus为我们提供了强大的mapper和service模板，能够大大的提高开发效率。</p>
 <p>但是在真正开发过程中，MyBatis-Plus并不能为我们解决所有问题，例如一些复杂的SQL，多表联查，我们就需要自己去编写代码和SQL语句，我们该如何快速的解决这个问题呢，这个时候可以使用MyBatisX插件。</p>
@@ -957,7 +860,7 @@
 <h2 id="1-安装MyBatisX插件"><a href="#1-安装MyBatisX插件" class="headerlink" title="1.安装MyBatisX插件"></a>1.安装MyBatisX插件</h2><blockquote>
 <p><strong>打开IDEA，File-&gt; Setteings-&gt;Plugins-&gt;MyBatisX，搜索栏搜索MyBatisX然后安装。</strong></p>
 </blockquote>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522115718361.png" srcset="/img/loading.gif" lazyload alt="image-20220522115718361"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522115718361.png" alt="image-20220522115718361"></p>
 <h2 id="2-快速生成代码"><a href="#2-快速生成代码" class="headerlink" title="2.快速生成代码"></a>2.快速生成代码</h2><ul>
 <li><p>新建一个Spring Boot项目引入依赖（创建工程时记得勾选lombok及mysql驱动）</p>
 <figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.baomidou<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.5.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.baomidou<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>dynamic-datasource-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.5.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></tbody></table></figure>
@@ -966,416 +869,219 @@
 <figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">type:</span> <span class="hljs-string">com.zaxxer.hikari.HikariDataSource</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/mybatis_plus?characterEncoding=utf-8&amp;useSSL=false</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-number">132537</span><br></code></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>在IDEA中与数据库建立链接</p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522120758740.png" srcset="/img/loading.gif" lazyload alt="image-20220522120758740"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522120758740.png" alt="image-20220522120758740"></p>
 </li>
 <li><p>填写数据库信息并保存</p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522121434468.png" srcset="/img/loading.gif" lazyload alt="image-20220522121434468"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522121434468.png" alt="image-20220522121434468"></p>
 </li>
 <li><p>找到我们需要生成的表点击右键</p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522121613909.png" srcset="/img/loading.gif" lazyload alt="image-20220522121613909"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522121613909.png" alt="image-20220522121613909"></p>
 </li>
 <li><p>填写完信息以后下一步</p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522122127649.png" srcset="/img/loading.gif" lazyload alt="image-20220522122127649"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522122127649.png" alt="image-20220522122127649"></p>
 </li>
 <li><p>继续填写信息</p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522122525598.png" srcset="/img/loading.gif" lazyload alt="image-20220522122525598"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522122525598.png" alt="image-20220522122525598"></p>
 </li>
 <li><p><strong>大功告成（真特么好用yyds）</strong></p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522122612334.png" srcset="/img/loading.gif" lazyload alt="image-20220522122612334"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522122612334.png" alt="image-20220522122612334"></p>
 </li>
 </ul>
 <h2 id="3-快速生成CRUD"><a href="#3-快速生成CRUD" class="headerlink" title="3.快速生成CRUD"></a>3.快速生成CRUD</h2><blockquote>
 <p>MyBaitsX可以根据我们在Mapper接口中输入的方法名快速帮我们生成对应的sql语句</p>
 </blockquote>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522123143852.png" srcset="/img/loading.gif" lazyload alt="image-20220522123143852"></p>
-<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522123202310.png" srcset="/img/loading.gif" lazyload alt="image-20220522123202310"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522123143852.png" alt="image-20220522123143852"></p>
+<p><img src="https://image-bed-vz.oss-cn-hangzhou.aliyuncs.com/MyBatis-Plus/image-20220522123202310.png" alt="image-20220522123202310"></p>
 <h1 id="十、致谢"><a href="#十、致谢" class="headerlink" title="十、致谢"></a>十、致谢</h1><p>感谢尚硅谷杨博超老师：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12R4y157Be?p=1">https://www.bilibili.com/video/BV12R4y157Be?p=1</a></p>
 <p>感谢MyBatis-Plus作者苞米豆：<a target="_blank" rel="noopener" href="https://baomidou.com/">https://baomidou.com/</a></p>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/java%E5%90%8E%E7%AB%AF/" class="category-chain-item">java后端</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/java%E5%90%8E%E7%AB%AF/%E6%8C%81%E4%B9%85%E5%B1%82/" class="category-chain-item">持久层</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/mysql/">#mysql</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>Mybatis-plus笔记</div>
-      <div>http://freel00p.github.io/2023/04/05/Mybatis-plus笔记/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>FreeL00P</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2023年4月5日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2023/04/05/Mybatis%E7%AC%94%E8%AE%B0/" title="Mybatis笔记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Mybatis笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2023/04/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/" title="计算机网络复习">
-                        <span class="hidden-mobile">计算机网络复习</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
             </div>
 
             
-  
-  
-    <article id="comments" lazyload>
-      
 
-    </article>
-  
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/mysql/">#mysql</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
 
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2023/04/05/Mybatis%E7%AC%94%E8%AE%B0/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Mybatis笔记</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/04/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">计算机网络复习</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
 
-          </article>
+            
         </div>
-      </div>
-    </div>
 
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
+        
+    </div>
 </div>
 
 
+                
+            </div>
 
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Keep Team</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
     </div>
-  </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
 </div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
 
     
 
-    
-  </main>
+</main>
 
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-  
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+        
+    
 </div>
 
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
 </body>
 </html>
