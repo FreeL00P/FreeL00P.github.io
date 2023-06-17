@@ -1,42 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1417" height="1417" viewBox="0 0 1417 1417">
-  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
-<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c140 79.160451, 2017/05/06-01:08:21        ">
-   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-      <rdf:Description rdf:about=""/>
-   </rdf:RDF>
-</x:xmpmeta>
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                           
-<?xpacket end="w"?></metadata>
-<defs>
-    <style>
-      .cls-1 {
-        fill: #fff;
-        fill-rule: evenodd;
-      }
-    </style>
-  </defs>
-  <image id="bg" width="1417" height="1417" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAABYkAAAWJAQMAAAABhQpvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAZswAAACPjmqcAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UBBgEsJnio0pkAAAENSURBVHja7cGBAAAAAMOg+VPf4ARVAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxwDe+AABxPjdbAAAAABJRU5ErkJggg=="/>
-  <path id="rectangular" class="cls-1" d="M274.359,275.19h289.77v874.62H274.359V275.19Z"/>
-  <path id="triangle-down" class="cls-1" d="M853.873,1149.81H1143.62L853.873,853.159V1149.81Z"/>
-  <path id="triangle-up" class="cls-1" d="M853.873,275.192H1143.62L853.873,564.942V275.192Z"/>
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="320.000000pt" height="320.000000pt" viewBox="0 0 320.000000 320.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,320.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M1620 2975 l0 -135 35 0 35 0 0 135 0 135 -35 0 -35 0 0 -135z"/>
+<path d="M975 2121 c-57 -26 -148 -128 -177 -198 -19 -50 -23 -75 -22 -178 0
+-158 19 -210 113 -305 57 -58 73 -69 119 -79 73 -15 1250 -15 1323 0 72 16
+176 117 208 202 65 177 35 361 -78 481 -97 102 -40 96 -791 96 -612 0 -658 -2
+-695 -19z m1265 -121 c54 -28 100 -77 128 -138 20 -44 23 -65 20 -120 -2 -38
+-12 -84 -23 -107 -83 -171 -314 -209 -446 -74 -55 56 -79 118 -79 200 0 67 0
+66 178 184 56 37 102 72 102 78 0 14 75 0 120 -23z m-903 -76 c82 -53 152
+-102 156 -108 14 -20 2 -149 -18 -191 -83 -171 -314 -209 -446 -74 -146 150
+-80 398 121 460 14 4 28 8 32 8 4 1 74 -42 155 -95z"/>
+<path d="M1960 1760 l0 -80 85 0 85 0 0 80 0 80 -85 0 -85 0 0 -80z"/>
+<path d="M1180 1750 l0 -80 85 0 85 0 0 80 0 80 -85 0 -85 0 0 -80z"/>
+<path d="M1288 930 l3 -90 -150 0 c-144 0 -151 -1 -151 -20 0 -19 7 -20 118
+-20 l117 -1 -118 -34 c-65 -19 -128 -37 -140 -40 -12 -2 -94 -27 -182 -54 -88
+-26 -186 -56 -218 -65 -197 -57 -191 -269 7 -254 52 4 233 54 495 135 78 25
+161 48 182 50 l39 6 0 -77 c0 -44 4 -76 10 -76 6 0 10 32 10 75 l0 75 120 0
+120 0 0 -75 c0 -60 3 -75 15 -75 12 0 15 15 15 75 l0 75 120 0 120 0 0 -75 c0
+-60 3 -75 15 -75 12 0 15 15 15 75 l0 75 110 0 110 0 0 -75 c0 -43 4 -75 10
+-75 6 0 10 32 10 75 l0 75 120 0 c113 0 120 1 120 20 0 19 -7 20 -120 20
+l-120 0 0 110 0 110 120 0 c113 0 120 1 120 20 0 19 -7 20 -120 20 l-120 0 0
+90 c0 53 -4 90 -10 90 -6 0 -10 -37 -10 -90 l0 -90 -110 0 -110 0 0 90 c0 73
+-3 90 -15 90 -12 0 -15 -17 -15 -90 l0 -90 -120 0 -120 0 0 90 c0 73 -3 90
+-15 90 -12 0 -15 -17 -15 -90 l0 -90 -121 0 -120 0 3 90 c2 75 0 90 -12 90
+-12 0 -14 -15 -12 -90z m262 -240 l0 -110 -111 0 -111 0 26 31 c39 46 36 98
+-10 149 l-36 40 121 0 121 0 0 -110z m270 0 l0 -110 -120 0 -120 0 0 110 0
+110 120 0 120 0 0 -110z m250 0 l0 -110 -110 0 -110 0 0 110 0 110 110 0 110
+0 0 -110z m-1515 -226 c0 -15 -7 -19 -32 -19 -39 0 -45 15 -12 32 30 16 44 12
+44 -13z"/>
+</g>
 </svg>
