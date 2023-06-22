@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="FreeL00P">
+    
+    <title>
+        
+            操作系统笔记 |
+        
+        FreeL00P
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"freel00p.github.io","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"念念不忘 恋恋不忘","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":false,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               FreeL00P
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">操作系统笔记</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">FreeL00P</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-04-05 23:29:25</span>
+        <span class="mobile">2023-04-05 23:29</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-06-22 22:43:53</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/OS/">OS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>13 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h2 id="OS笔记"><a href="#OS笔记" class="headerlink" title="OS笔记"></a>OS笔记</h2><h3 id="一、操作系统引论"><a href="#一、操作系统引论" class="headerlink" title="一、操作系统引论"></a>一、操作系统引论</h3><h4 id="1-1-操作系统的目标和作用"><a href="#1-1-操作系统的目标和作用" class="headerlink" title="1.1 操作系统的目标和作用"></a>1.1 操作系统的目标和作用</h4><h5 id="1-1-1-操作系统的目标"><a href="#1-1-1-操作系统的目标" class="headerlink" title="1.1.1 操作系统的目标"></a>1.1.1 操作系统的目标</h5><ul>
+<li><p><strong>方便性</strong></p>
+</li>
+<li><p><strong>有效性</strong></p>
+<ol>
+<li>提高系统资源利用率</li>
+<li>提高系统吞吐量</li>
+</ol>
+</li>
+<li><p><em><strong>可扩充性</strong></em></p>
+</li>
+<li><p><strong>开放性</strong></p>
+</li>
+</ul>
+<h5 id="1-1-2-操作系统的作用"><a href="#1-1-2-操作系统的作用" class="headerlink" title="1.1.2 操作系统的作用"></a>1.1.2 操作系统的作用</h5><ul>
+<li>作为用户与计算机硬件系统之间的接口</li>
+<li>作为计算机系统资源的管理者</li>
+<li>实现了对计算机资源的抽象</li>
+</ul>
+<h5 id="1-1-3-操作系统的功能"><a href="#1-1-3-操作系统的功能" class="headerlink" title="1.1.3 操作系统的功能"></a>1.1.3 操作系统的功能</h5><ol>
+<li><p>处理器管理</p>
+<ol>
+<li>进程控制</li>
+<li>进程同步</li>
+<li>进程通信</li>
+<li>调度</li>
+</ol>
+</li>
+<li><p>存储器管理</p>
+<ol>
+<li>内存分配</li>
+<li>内存保护</li>
+<li>地址映射</li>
+<li>内存扩充</li>
+</ol>
+<p>					</p>
+</li>
+<li><p>I/O设备管理</p>
+<ol>
+<li>缓存管理</li>
+<li>设备分配</li>
+<li>设备处理</li>
+</ol>
+</li>
+<li><p>文件管理</p>
+<ol>
+<li>文件存储空间的管理</li>
+<li>目录管理</li>
+<li>文件的读写管理和保护</li>
+</ol>
+</li>
+</ol>
+<h5 id="1-1-4-操作系统发展的主要动力"><a href="#1-1-4-操作系统发展的主要动力" class="headerlink" title="1.1.4 操作系统发展的主要动力"></a>1.1.4 操作系统发展的主要动力</h5><ul>
+<li>不断提高计算机资源利用率</li>
+</ul>
+<h5 id="1-1-5-操作系统的特征"><a href="#1-1-5-操作系统的特征" class="headerlink" title="1.1.5  操作系统的特征"></a>1.1.5  操作系统的特征</h5><ol>
+<li><p>并发性</p>
+<ul>
+<li>同一时间间隔内执行和调度多个程序的能力</li>
+</ul>
+</li>
+<li><p>并行性</p>
+<ul>
+<li>同一时刻执行的事件</li>
+</ul>
+</li>
+<li><p>共享性</p>
+<ul>
+<li>系统中的资源供多个并发执行的应用程序同时使用<ul>
+<li>同时共享</li>
+<li>独占共享</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>虚拟</p>
+<ul>
+<li><p>时分复用</p>
+<ul>
+<li>虚拟处理器 四核八线程</li>
+</ul>
+</li>
+<li><p>空分复用</p>
+<ul>
+<li>虚拟磁盘 (分区)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>异步</p>
+<ul>
+<li>多道环境下，允许多个程序并发执行</li>
+<li>单处理环境下，允许多个程序分时交替执行</li>
+</ul>
+</li>
+</ol>
+<h4 id="1-2-操作系统的发展过程"><a href="#1-2-操作系统的发展过程" class="headerlink" title="1.2 操作系统的发展过程"></a>1.2 操作系统的发展过程</h4><h5 id="1-2-1-未配置操作系统的计算机系统"><a href="#1-2-1-未配置操作系统的计算机系统" class="headerlink" title="1.2.1 未配置操作系统的计算机系统"></a>1.2.1 未配置操作系统的计算机系统</h5><ul>
+<li><p>人工操作方式</p>
+</li>
+<li><p>脱机输入/输出方式</p>
+</li>
+</ul>
+<h5 id="1-2-2-单道批处理系统"><a href="#1-2-2-单道批处理系统" class="headerlink" title="1.2.2 单道批处理系统"></a>1.2.2 单道批处理系统</h5><ol>
+<li><em>单道批处理系统执行流程</em></li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/vvFDLn"><img lazyload="" alt="image" data-src="https://s1.ax1x.com/2022/09/14/vvFDLn.png"></a></p>
+<ol start="2">
+<li><p>文字描述</p>
+<p>先把一批作业以脱机方式输入到磁带上，并在系统中配上监督（Monitor)，在它的控制下，使这批作业能一个接一个地连续处理。其处理过程是：首先由监督程序将磁带上的第一个作业装入内存，并把运行控制权交给该作业；当该作业处理完成时，又把控制权交还给监督程序，再由监督程序把磁带上的第二个作业调入内存</p>
+</li>
+<li><p><strong>单道批处理系统的缺点</strong></p>
+</li>
+</ol>
+<ul>
+<li>单道批处理系统最主要的缺点是，系统中的资源得不到充分的利用。</li>
+</ul>
+<h5 id="1-2-3-多道批处理系统"><a href="#1-2-3-多道批处理系统" class="headerlink" title="1.2.3 多道批处理系统"></a>1.2.3 多道批处理系统</h5><ol>
+<li><p><strong>多道批程序设计的基本概念</strong></p>
+<p>用户所提交的作业先存在外存上，并排成一个队列，成为<strong>后备队列</strong>。然后由作业系统调度程序按照一定的算法，从后备队列中选择若干个作业调入内存，使它们共享CPU和系统的各种资源。</p>
+</li>
+<li><p><strong>多道批处理系统的优缺点</strong></p>
+<ol>
+<li>资源利用率高</li>
+<li>系统吞吐量大</li>
+<li>平均周转时间长</li>
+<li>无交互能力</li>
+</ol>
+</li>
+<li><p><strong>需要解决的问题</strong></p>
+<ol>
+<li>处理机争用问题</li>
+<li>内存分配和保护问题</li>
+<li>IO设备分配问题</li>
+<li>文件的组织和管理问题</li>
+<li>作业管理问题</li>
+<li>用户与系统的接口问题</li>
+</ol>
+</li>
+</ol>
+<h5 id="操作系统的概念"><a href="#操作系统的概念" class="headerlink" title="操作系统的概念"></a><font color="red">操作系统的概念</font></h5><ul>
+<li>操作系统是一组能有效的组织和管理计算机硬件和软件资源，合理的对各类作业进行调度，以方便用户使用的程序集合。</li>
+</ul>
+<h5 id="1-2-4-分时系统-Time-Sharing-System"><a href="#1-2-4-分时系统-Time-Sharing-System" class="headerlink" title="1.2.4 分时系统(Time Sharing System)"></a>1.2.4 分时系统(Time Sharing System)</h5><p><strong>1. 分时系统的引入</strong></p>
+<ul>
+<li><p>推动分时系统形成和发展的主要动力是<font color="red">用户对人机交互的需求。</font></p>
+</li>
+<li><p>用户需求的具体体现 </p>
+<ol>
+<li><p>人机交互</p>
+</li>
+<li><p>共享主机</p>
+</li>
+</ol>
+</li>
+<li><p>分时系统是什么？</p>
+</li>
+<li><p><strong>分时系统是指在一台主机上连接了多个配有显示器和键盘的终端并由此所组成的系统，该系统允许多个用户通过自己的终端，以交互方式使用计算机，共享主机中的资源。</strong></p>
+</li>
+</ul>
+<p><strong>2. 实时操作系统</strong></p>
+<ul>
+<li><p>与分时系统比较</p>
+<ol>
+<li>多路性</li>
+<li>独立性</li>
+<li>及时性</li>
+<li>交互性</li>
+<li>可靠性:多级容错，保障系统安全</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-3-操作系统体系结构"><a href="#1-3-操作系统体系结构" class="headerlink" title="1.3  操作系统体系结构"></a>1.3  操作系统体系结构</h4><h5 id="1-3-1-操作系统的运行机制"><a href="#1-3-1-操作系统的运行机制" class="headerlink" title="1.3.1 操作系统的运行机制"></a>1.3.1 操作系统的运行机制</h5><p><a target="_blank" rel="noopener" href="https://imgse.com/i/vz0sJI"><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownvz0sJI.png"></a></p>
+<ol>
+<li><p>时钟管理</p>
+<ol>
+<li>计时–&gt;提供系统时间</li>
+<li>时钟中断–&gt;进程切换</li>
+</ol>
+</li>
+<li><p>中断机制</p>
+<ol>
+<li><p>提到多道程序的CPU利用率</p>
+</li>
+<li><p>外中断：中断信号来源于–&gt;外部设备</p>
+</li>
+<li><p>内中断：中断信号来源于–&gt;当前指令</p>
+</li>
+<li><p>中断机制处理</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/vzDOIJ"><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownvzDOIJ.png"></a></p>
+</li>
+</ol>
+</li>
+<li><p>原语</p>
+<ol>
+<li>由若干条指令组成</li>
+<li>用来完成某个特定功能</li>
+<li>执行过程不会被中断–&gt;原子性</li>
+</ol>
+</li>
+<li><p>系统数据结构</p>
+<ol>
+<li>进程管理：作业控制块、进程控制块</li>
+<li>存储器管理：存储器分配与回收</li>
+<li>设备管理：缓冲区、设备控制块</li>
+</ol>
+</li>
+<li><p>系统调用</p>
+<ol>
+<li>由操作系统实现，给应用程序调用</li>
+<li>是一套接口的集合</li>
+<li>应用程序访问内核的方式</li>
+</ol>
+</li>
+</ol>
+<h4 id="1-4-操作系统的体系结构"><a href="#1-4-操作系统的体系结构" class="headerlink" title="1.4 操作系统的体系结构"></a>1.4 操作系统的体系结构</h4><ol>
+<li>无结构OS</li>
+<li>模块化OS</li>
+<li>分层式结构OS</li>
+<li>微内核OS</li>
+</ol>
+<h3 id="二、进程管理"><a href="#二、进程管理" class="headerlink" title="二、进程管理"></a>二、进程管理</h3><h4 id="2-1-什么是进程"><a href="#2-1-什么是进程" class="headerlink" title="2.1  什么是进程"></a>2.1  什么是进程</h4><ol>
+<li><p>进程是一个具用特定功能的查询关于某个数据集合的一次运行活动，是系统进行<font color="red">资源分配和调度</font>的一个独立单位。</p>
+<ul>
+<li>进程是程序的一次执行</li>
+<li>进程是一个程序在处理机上顺序执行时所发生的<font color="red">活动</font></li>
+<li>进程是程序在一个<font color="red">数据集合</font>上运行的过程</li>
+<li>进程是系统进行<font color="red">资源分配和调度</font>的一个<font color="red">独立单位</font></li>
+</ul>
+<p>系统会为每一个进程分配一定的内存空间，该内存空间为该进程私享</p>
+</li>
+</ol>
+<h5 id="2-1-1-进程的结构"><a href="#2-1-1-进程的结构" class="headerlink" title="2.1.1 进程的结构"></a>2.1.1 进程的结构</h5><p><a target="_blank" rel="noopener" href="https://imgse.com/i/vz6hwT"><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownvz6hwT.png"></a></p>
+<ul>
+<li>控制块 PCB<ul>
+<li>一个进程对应一个PCB，处理机通过PCB对进程进行管理。</li>
+</ul>
+</li>
+<li>数据段</li>
+<li>程序段</li>
+</ul>
+<h5 id="2-1-2-进程的特征"><a href="#2-1-2-进程的特征" class="headerlink" title="2.1.2 进程的特征"></a>2.1.2 进程的特征</h5><ol>
+<li>动态性:由创建而生，由撤销而亡。</li>
+<li>并发性：多个进程同时运行</li>
+<li>独立性：独立资源分配<ul>
+<li>每个进程都有自己的独立内存空间，进程内的线程都公共享用。</li>
+</ul>
+</li>
+<li>异步性：相互独立、互不干扰<ul>
+<li>当一个进程阻塞时，并不影响其他进程的运行。</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-2-线程的概念"><a href="#2-2-线程的概念" class="headerlink" title="2.2  线程的概念"></a>2.2  线程的概念</h4><ol>
+<li>Thread  j进程的轻型实体，是一系列活动按事先设定好的顺序依次执行的过程，是一系列的集合。</li>
+<li>是一条执行路径不能单独存在，必须包含在进程中</li>
+<li>线程是OS中运算调度的最小单位</li>
+</ol>
+<h5 id="2-2-1-线程的属性"><a href="#2-2-1-线程的属性" class="headerlink" title="2.2.1 线程的属性"></a>2.2.1 线程的属性</h5><ul>
+<li>轻型实体</li>
+<li>独立调度和分配资源的基本单位</li>
+<li>可并发执行</li>
+<li>共享进程资源</li>
+</ul>
+<h5 id="2-2-2-线程的实现方式"><a href="#2-2-2-线程的实现方式" class="headerlink" title="2.2.2 线程的实现方式"></a>2.2.2 线程的实现方式</h5><ol>
+<li><p>用户级线程</p>
+<ol>
+<li>线程间的切换由进程进行管理，不需要访问内核,<ul>
+<li>线程同属于一个进程，同属于一块内存空间，在进程内就能完成切换</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>内核级线程</p>
+<ol>
+<li><p>线程切换的开销比较大，但运行效率高</p>
+<ul>
+<li><p>因为每次切换线程都需要访问到内核对应的进程，</p>
+<p>在访问目标切换到的线程对应的内核，在访问到目标线程进行·切换</p>
+</li>
+<li><p>操作是在内核完成的，所有执行效率较高</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/vz2ieP"><img lazyload="" alt="image" data-src="https://s1.ax1x.com/2022/09/16/vz2ieP.png"></a></p>
+<h4 id="2-3-进程与线程比较"><a href="#2-3-进程与线程比较" class="headerlink" title="2.3 进程与线程比较"></a>2.3 进程与线程比较</h4><ul>
+<li><p><strong>一句话 ： <font color="red">&nbsp;线程相对于进程，大大的降低创建、撤销和切换可执行实体的成本和难度</font></strong></p>
+</li>
+<li><p>调度 <font color="red">调度的基本单位是线程</font></p>
+</li>
+<li><p>拥有资源 <font color="red">线程不拥有资源，而是从进程中获取,只有使用权</font></p>
+</li>
+<li><p>并发性  引入进程和线程都是为了提高并发性</p>
+</li>
+<li><p>系统开销  <font color="red">创建和撤销进程以及进程切换的开销较高，而线程相对于小很多</font></p>
+</li>
+<li><p>地址空间和其他资源  <font color="red">进程相互独立，线程共享进程的内存空间，线程中的寄存器资源是独立的</font></p>
+</li>
+<li><p>通信 <font color="red">线程可以直接进行通信</font></p>
+</li>
+</ul>
+<h4 id="2-4-进程的基本形态"><a href="#2-4-进程的基本形态" class="headerlink" title="2.4  进程的基本形态"></a>2.4  进程的基本形态</h4><ul>
+<li><p>就绪（Ready）</p>
+<ul>
+<li>此时该进程以获取的需要的资源，等待进程调度执行</li>
+</ul>
+</li>
+<li><p>执行（Running）</p>
+</li>
+<li><p>阻塞 (Blocked)</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/vzW5Rg"><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownvzW5Rg.png"></a></p>
+<p>进程得到允许后进入就绪状态，就绪底层数据结构是队列，先进先出，当进程得到调度进入运行状态，执行完毕后释放资源,如果运行中有IO处理等其他业务，会进入阻塞状态（同样，阻塞底层数据结构也是队列）等待数据处理完毕，在继续运行。如果中间出现异常，执行异常处理，异常无法抛出，进程终止。</p>
+<h4 id="2-5-进程控制"><a href="#2-5-进程控制" class="headerlink" title="2.5 进程控制"></a>2.5 进程控制</h4><h5 id="2-5-1-进程控制的方法"><a href="#2-5-1-进程控制的方法" class="headerlink" title="2.5.1  进程控制的方法"></a>2.5.1  进程控制的方法</h5><ul>
+<li><p><strong>OS通过<font color="red">原语</font>对进程进行控制</strong></p>
+<ul>
+<li>原语由一些指令组成，这些指令一般是执行效率非常高。</li>
+<li>通过这些指令对进程进行创建，撤销，挂起，阻塞，挂起，唤醒，进程切换的操作。<ul>
+<li>原语具有<font color="red">原子性</font>的特点，即原语中的操作，要么全做要么全不做,不会被中断。</li>
+</ul>
+</li>
+<li>原语控制进程的函数</li>
+<li><a target="_blank" rel="noopener" href="https://imgse.com/i/vzoYse"><img lazyload="" alt="image" data-src="https://s1.ax1x.com/2022/09/16/vzoYse.png"></a></li>
+</ul>
+</li>
+</ul>
+<h5 id="2-5-2-进程控制：挂起与激活"><a href="#2-5-2-进程控制：挂起与激活" class="headerlink" title="2.5.2 进程控制：挂起与激活"></a>2.5.2 进程控制：挂起与激活</h5><ul>
+<li>目的：为了系统和用户观察和分析进程</li>
+<li><a target="_blank" rel="noopener" href="https://imgse.com/i/vzHExf"><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/markdownvzHExf.png"></a></li>
+<li>挂起原语：<strong>suspend</strong><ul>
+<li>静止就绪:放外存，不调度，原因：进程一直没有得到调度。</li>
+<li>静止阻塞：等待事件 某个进程长期处于阻塞队列，会占用内存资源，所以要挂起进入静止阻塞状态。</li>
+<li>Tips:<font color="red">在运行状态不能执行挂机原语，在进程进入阻塞状态，或处于就绪状态，才可以挂起</font>，进入阻塞状态的线程被挂起，将数据放在外存，被激活后重新将数据恢复到内存</li>
+</ul>
+</li>
+<li>激活原语：active</li>
+</ul>
+<h5 id="2-5-3-处理机调度"><a href="#2-5-3-处理机调度" class="headerlink" title="2.5.3  处理机调度"></a>2.5.3  处理机调度</h5><ul>
+<li><p>根据算法和原则将处理机资源进行重新分配</p>
+</li>
+<li><p><strong>前提</strong>：进程数远大于处理机数</p>
+</li>
+<li><p><strong>目的</strong>：提高资源利用率，减少处理机空闲时间</p>
+</li>
+<li><p><strong>调度的层次</strong> </p>
+</li>
+<li><p><strong>高级调度/作业调度</strong></p>
+<ul>
+<li><p>把后备作业调入内存</p>
+</li>
+<li><p>只调入一次，调出一次</p>
+<ul>
+<li><strong>人话：<font color="red">将磁盘安装的应用程序打开，转换为内存中进程</font></strong></li>
+</ul>
+</li>
+<li><p><strong>中级调度/内存调度</strong></p>
+</li>
+</ul>
+</li>
+<li><p>​	将<font color="red">进程</font>调至外存，条件合适在调入内存<br>​    - 人话：此时进程在内存中，由于IO等原因，长时间处于阻塞状态，通过内存调度转换为静态阻塞，将进程调入到外存。可以执行多次调度。 </p>
+<ul>
+<li>在内外存对换区进行进程交换</li>
+</ul>
+</li>
+<li><p><strong>低级调度/进程调度</strong></p>
+<ul>
+<li>从就绪队列选取分配给处理机<ul>
+<li>按照某种算法将就绪队列进程分配给处理机</li>
+<li>最基本的调度，频率非常高</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>调度方式</strong> </p>
+</li>
+<li><p><strong>剥夺式/抢占式调度</strong></p>
+<ul>
+<li>立即暂停当前进程<ul>
+<li>直接暂停正在执行的进，将处理机资源按照原则交给另一个。</li>
+</ul>
+</li>
+<li>分配处理机给另一个进程</li>
+<li>原则：优先权/短进程优先/时间片原则</li>
+<li><strong>非剥夺/非抢占式调度</strong><ul>
+<li>若有进程请求执行</li>
+<li>等待直到当前进程完成或阻塞</li>
+<li>缺点：适用于批处理系统，不适用于分时/实时系统</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>调度时机</strong></p>
+<ul>
+<li>进程运行完毕</li>
+<li>进程时间片用完</li>
+<li>进程要求IO操作</li>
+<li>进程执行某种原语</li>
+<li>高优先级进程申请运行（剥夺式调度）</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-5-4-调度算法"><a href="#2-5-4-调度算法" class="headerlink" title="2.5.4 调度算法"></a>2.5.4 调度算法</h5><ul>
+<li><p>进程调度：**<font color="red">先来先服务（FCFS,First Come First Served）</font>**</p>
+<ul>
+<li><strong>算法内容</strong>：调度<font color="red">作业/就绪队列</font>里的进程最先入队者,等待操作完成或阻塞。<ul>
+<li>阻塞后会进入阻塞队列，同样的也需要等待处理机调度。</li>
+</ul>
+</li>
+<li><strong>算法原则</strong>：按进程入队顺序执行</li>
+<li><strong>调度方式</strong>：非抢占式调度</li>
+<li><strong>适用场景</strong>：作业/进程调度</li>
+<li><strong>优缺点</strong>：<ul>
+<li><font color="red">有利于CPU繁忙作业，充分利用CPU资源</font><ul>
+<li>处理需要大量计算的数据，需要充分利用CPU资源以快速得到运算结果。</li>
+</ul>
+</li>
+<li>不利于IO繁忙型作业，操作耗时。<ul>
+<li>如果当前进程一直在进行IO操作，会导致后面的进程一直处于等待状态，一直得不到处理机调度。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>短作业优先（SJF，Shortest Job First）</p>
+<ul>
+<li><p><strong>算法内容：</strong>所需服务时间最短的<font color="red">作业/进程</font>优先执行</p>
+<ul>
+<li>从就绪队列·中取出剩余时间最短的进程执行</li>
+<li>Tips:就绪队列中优先检查曾经阻塞过，被恢复到就绪队列，这时进程已经运行过一段时间，所以是按照最短剩余时间来优先执行</li>
+</ul>
+</li>
+<li><p><strong>算法原则：</strong>最求最少的平均（带权）周转时间，</p>
+<ul>
+<li><p>什么是带权周转时间？</p>
+<ul>
+<li><p>作业周转时间与系统为作业提供的服务时间的比值</p>
+<p>这个比值就是带权周转时间，带权周转时间越大作业越短。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>调度方式：</strong> SJF/SPF非抢占式</p>
+</li>
+<li><p><strong>使用场景：</strong>作业/进程调度</p>
+</li>
+<li><p><strong>优缺点：</strong></p>
+<ul>
+<li><font color="red">平均等待/周转时间最少</font></li>
+<li>长作业时间会增加或饥饿<ul>
+<li>耗时较长的进程一直得不到调度</li>
+</ul>
+</li>
+<li>估计时间不准确，不能保证紧迫任务及时处理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>高响应比优先调度（Highest Response Ratio Next, HRRN）</p>
+<ul>
+<li><strong>算法内容：</strong>结合FCFS和SFJ，综合考虑等待时间和服务时间计算响应比，高的优先调度</li>
+<li><strong>算法原则：</strong>综合考虑作业/进程的等待时间和服务时间</li>
+<li><strong>调度方式：</strong>非抢占式</li>
+<li><strong>适用场景：</strong>作业/进程调度</li>
+<li><strong>响应比计算：</strong><ul>
+<li>响应比=（等待时间+服务时间）/服务时间&gt;=1</li>
+<li>只有当前进程放弃执行权（完成或者阻塞时），重新计算所有进程响应比</li>
+<li><font color="red">长作业等待越久响应比越高，更容易获得处理机</font></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>优先级调度(Highest Priority First，HPF)</p>
+<ul>
+<li><strong>算法内容：</strong>按作业/进程的优先级进行调度</li>
+<li><strong>算法原则：</strong>优先级最高（紧迫程度）的作业/进程先调度</li>
+<li><strong>调度方式：</strong>抢占/非抢占式（并不能获得及时执行）</li>
+<li><strong>适用场景：</strong>作业/进程调度</li>
+<li><strong>优先级设置规则：</strong><ul>
+<li>静态/动态优先级</li>
+<li>系统&gt;用户，交互型/非交互型；IO型&gt;计算型</li>
+<li>低优先级进程可能会产生饥饿</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>时间片轮转调度（Round Robin, RR）</p>
+<ul>
+<li><strong>算法内容：</strong>按进程到达就绪队列的顺序，轮流分配一个时间片去执行，时间用完则剥夺。</li>
+<li><strong>算法原则：</strong>公平轮流为每一个进程服务，进程在一定时间内得到响应</li>
+<li><strong>调度放式：</strong>抢占式，由时钟中断确定时间到</li>
+<li><strong>使用场景：</strong>进程调度</li>
+<li><strong>优缺点：</strong><ul>
+<li><font color="red">公平，响应快，适用于分时系统</font></li>
+<li>时间片决定因素，系统响应时间，就绪队列进程数量，系统处理能力</li>
+<li>时间片太大，相当于FCFS,太小，处理机切换频繁，开销增大。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>多级反馈队列调度（Multilevel Feedback Queue）</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://imgse.com/i/xpqa2n"><img lazyload="" alt="image" data-src="https://s1.ax1x.com/2022/09/18/xpqa2n.png"></a></li>
+<li>算法内容<ul>
+<li>设置多个优先级排序的就绪队列优先级从高到低，时间片从小到大新进程采用队列降级法<ul>
+<li>第一级队列中按照FCFS分时间片，没有执行完毕的进程移入第二级，只有前一队列中的进程全部执行完或阻塞，才开始执行第二及队列。</li>
+<li>第一及队列中的进程阻塞，加入到第二及队列尾部。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>算法原则：</strong>集合前几种算法，相当于PSA+RR</li>
+<li><strong>调度方式：</strong>抢占式</li>
+<li><strong>适用场景：</strong>进程调度</li>
+<li><strong>优缺点：</strong><ul>
+<li>对各类型相对公平；快速响应</li>
+<li>终端作业用户：短作业优先</li>
+<li>批处理作业用户：周转时间短</li>
+<li>长处理作业用户：在前几个队列部分执行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/OS/">#OS</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2023/04/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">计算机网络复习</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/04/05/%E4%B8%80%E4%BA%9BMysql%E7%9F%A5%E8%AF%86%E7%82%B9/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">一些Mysql知识点</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OS%E7%AC%94%E8%AE%B0"><span class="nav-text">OS笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA"><span class="nav-text">一、操作系统引论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%9B%AE%E6%A0%87%E5%92%8C%E4%BD%9C%E7%94%A8"><span class="nav-text">1.1 操作系统的目标和作用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-1-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="nav-text">1.1.1 操作系统的目标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">1.1.2 操作系统的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-3-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-text">1.1.3 操作系统的功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-4-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%91%E5%B1%95%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%A8%E5%8A%9B"><span class="nav-text">1.1.4 操作系统发展的主要动力</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-5-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-text">1.1.5  操作系统的特征</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8F%91%E5%B1%95%E8%BF%87%E7%A8%8B"><span class="nav-text">1.2 操作系统的发展过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-1-%E6%9C%AA%E9%85%8D%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F"><span class="nav-text">1.2.1 未配置操作系统的计算机系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-2-%E5%8D%95%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-text">1.2.2 单道批处理系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-3-%E5%A4%9A%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-text">1.2.3 多道批处理系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">操作系统的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-4-%E5%88%86%E6%97%B6%E7%B3%BB%E7%BB%9F-Time-Sharing-System"><span class="nav-text">1.2.4 分时系统(Time Sharing System)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">1.3  操作系统体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-1-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="nav-text">1.3.1 操作系统的运行机制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">1.4 操作系统的体系结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-text">二、进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BF%9B%E7%A8%8B"><span class="nav-text">2.1  什么是进程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-text">2.1.1 进程的结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-2-%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-text">2.1.2 进程的特征</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">2.2  线程的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">2.2.1 线程的属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">2.2.2 线程的实现方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%AF%94%E8%BE%83"><span class="nav-text">2.3 进程与线程比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BD%A2%E6%80%81"><span class="nav-text">2.4  进程的基本形态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-text">2.5 进程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-1-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">2.5.1  进程控制的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-2-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%EF%BC%9A%E6%8C%82%E8%B5%B7%E4%B8%8E%E6%BF%80%E6%B4%BB"><span class="nav-text">2.5.2 进程控制：挂起与激活</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-3-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="nav-text">2.5.3  处理机调度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-4-%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-text">2.5.4 调度算法</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">FreeL00P</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    本站由 <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span> 提供部署服务
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
