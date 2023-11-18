@@ -8,7 +8,7 @@
       <link href="/2023/11/17/Clash%E5%88%86%E6%B5%81/"/>
       <url>/2023/11/17/Clash%E5%88%86%E6%B5%81/</url>
       
-        <content type="html"><![CDATA[<ul><li><p>DOMAIN-SUFFIX,ai.com,🤖Chatgpt</p></li><li><p>DOMAIN-SUFFIX,openai.com,🤖Chatgpt</p></li><li><p>DOMAIN,chat.openai.com.cdn.cloudflare.net,🤖Chatgpt</p></li><li><p>DOMAIN,openaiapi-site.azureedge.net,🤖Chatgpt</p></li><li><p>DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,🤖Chatgpt</p></li><li><p>DOMAIN,openaicomproductionae4b.blob.core.windows.net,🤖Chatgpt</p></li><li><p>DOMAIN,production-openaicom-storage.azureedge.net,🤖Chatgpt</p><ul><li><h2 id="name-🤖Chatgpt-type-select-proxies"><a href="#name-🤖Chatgpt-type-select-proxies" class="headerlink" title=" name: 🤖Chatgpt type: select proxies:"></a> name: 🤖Chatgpt<br> type: select<br> proxies:</h2></li></ul></li></ul>]]></content>
+        <content type="html"><![CDATA[<pre class="line-numbers language-none"><code class="language-none">- DOMAIN-SUFFIX,ai.com,🤖Chatgpt- DOMAIN-SUFFIX,openai.com,🤖Chatgpt- DOMAIN,chat.openai.com.cdn.cloudflare.net,🤖Chatgpt- DOMAIN,openaiapi-site.azureedge.net,🤖Chatgpt- DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,🤖Chatgpt- DOMAIN,openaicomproductionae4b.blob.core.windows.net,🤖Chatgpt- DOMAIN,production-openaicom-storage.azureedge.net,🤖Chatgpt  -    name: 🤖Chatgpt    type: select    proxies:      - <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
       
