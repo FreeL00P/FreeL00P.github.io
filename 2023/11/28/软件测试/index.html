@@ -231,7 +231,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-11-28 17:00:05</span>
+        <span class="pc">2023-11-28 17:12:18</span>
     </span>
     
     
@@ -251,12 +251,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>4.4k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>4.7k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>15 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>16 分钟</span>
         </span>
     
     
@@ -416,13 +416,28 @@
 <li><strong>根据判定表设计测试用例</strong>：因果图法考虑了输入情况的各种组合以及各种输入情况之间的相互制约关系，可以帮助测试人员按照一定的步骤高效率地开发测试用例</li>
 </ol>
 <p>因果图的图形符号表示关系</p>
-<p><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/20211108151314185.jpg"></p>
+<p><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/20211108151314185.jpg" style="zoom:33%;"><img lazyload="" alt="image" data-src="C:\Users\Administrator\Desktop\Hexo-blog\hexo-blog\source\_posts\assets\image-20231128170521996.png" style="zoom:33%;"></p>
 <ul>
 <li>(a)恒等。若原因出现，则结果出现；若原因不出现，则结果不出现。</li>
 <li>(b)非。若原因出现，则结果不出现；若原因不出现，则结果出现。</li>
 <li>(c)或。若几个原因中有一个出现，则结果出现；若几个原因均不出现，则结果不出现。</li>
 <li>(d)与。若几个原因都出现，结果才出现；若几个原因中有一个不出现，则结果不出现。</li>
 </ul>
+<pre class="line-numbers language-none"><code class="language-none">公交一卡通自动充值模拟系统，其需求描述如下。
+  ●系统只接收50元或100元纸币，一次充值智能使用一张纸币，一次充值金额只能为50元或100元。
+  ●若输入50元纸币，并选择充值50元，完成充值后退卡，提示充值成功。
+  ●若输入50元纸币，并选择充值100元，提示输入金额不足，并退回50元。
+  ●若输入100元纸币，并选择充值50元，完成充值后退卡，提示充值成功，找零50元。
+  ●若输入100元纸币，并选择充值100元，完成充值后退卡，提示充值成功。
+  ●若输入纸币在规定时间内不选择充值按钮，退回输入的纸币，并提示错误。
+  ●若选择充值按钮后不输入纸币，提示错误
+使用因果图法给出公交一卡通自动充值系统的测试用例设计。
+（1）给出条件与结果；
+（2）画出因果图；（为了描述的更清楚，可以将每种情况单独画一个因果图说明）
+（3）转换为判定表；
+（4）设计测试用例<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img lazyload="" alt="image" data-src="C:\Users\Administrator\Desktop\Hexo-blog\hexo-blog\source\_posts\assets\image-20231128171149329.png" style="zoom: 33%;"><img lazyload="" alt="image" data-src="C:\Users\Administrator\Desktop\Hexo-blog\hexo-blog\source\_posts\assets\image-20231128171204384.png" style="zoom: 33%;"></p>
 <p><strong>3. Pairwise方法</strong>（两两组合测试）</p>
 <h4 id="4-基于组合及其优化的方法"><a href="#4-基于组合及其优化的方法" class="headerlink" title="4. 基于组合及其优化的方法"></a>4. 基于组合及其优化的方法</h4><p><strong>1.判定覆盖</strong><br>程序的每个判断条件的真分支和假分支都需要执行一次。</p>
 <p><strong>2. 条件覆盖</strong><br>程序的每个判断条件的可能取值至少满足一次。</p>
@@ -449,8 +464,10 @@
 <p><strong>3. 判定-条件覆盖</strong><br>程序的判断条件中的所有条件可能取值至少执行一次，所有判断结果都要执行一次。</p>
 <p><strong>4. 条件组合覆盖</strong><br>程序的每个判断条件的所有可能至少出现一次。<br>条件：a&gt;1||b&lt;0,用例：TT,TF,FT,FF</p>
 <p><strong>5. 基本路径覆盖</strong><br>设计所有的测试用例，来覆盖程序中所有可能的、独立的执行路径。<br><strong>环路复杂度V(G)=区域数目=边界数-节点数+2=判断节点数+1。</strong><br>基本路径集合不是唯一，但需要确保每条路径都走到。</p>
-<p><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20231128165017088.png" style="zoom: 50%;"><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20231128165325106.png" style="zoom: 50%;"></p>
+<img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/image-20231128170203568.png" style="zoom:50%;">
+
 <p>流程图-&gt;控制流图</p>
+<p><img lazyload="" alt="image" data-src="https://freelooptc.oss-cn-shenzhen.aliyuncs.com/f7b8a76dded1e9c1086653898a7974c6.png" style="zoom:50%;"><img lazyload="" alt="image" data-src="C:\Users\Administrator\Desktop\Hexo-blog\hexo-blog\source\_posts\assets\image-20231128170945135.png" style="zoom:50%;"></p>
 <h4 id="5-基于缺陷模式的测试"><a href="#5-基于缺陷模式的测试" class="headerlink" title="5. 基于缺陷模式的测试"></a>5. 基于缺陷模式的测试</h4><p><strong>1. 常见的缺陷模式</strong></p>
 <p>错误使用语法类故障<br>安全漏洞模式<br>低性能模式<br>并发缺陷模式<br>不良习惯模式<br>硬编码模式<br>易诱骗代码模式</p>
 <h4 id="6-基于模型的测试"><a href="#6-基于模型的测试" class="headerlink" title="6. 基于模型的测试"></a>6. 基于模型的测试</h4><p>一般运用于通信协议测试、API测试<br>工具：Spec Exploer</p>
