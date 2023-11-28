@@ -231,7 +231,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-11-28 13:03:34</span>
+        <span class="pc">2023-11-28 13:27:17</span>
     </span>
     
     
@@ -241,7 +241,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">软件测试##</a>&nbsp;
+                        <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">软件测试</a>&nbsp;
                     </li>
                 
             </ul>
@@ -251,12 +251,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.7k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
         </span>
     
     
@@ -405,6 +405,22 @@
 <h4 id="2-边界值分析法"><a href="#2-边界值分析法" class="headerlink" title="2. 边界值分析法"></a>2. 边界值分析法</h4><h4 id="3-基于组合及其优化的方法"><a href="#3-基于组合及其优化的方法" class="headerlink" title="3. 基于组合及其优化的方法"></a>3. 基于组合及其优化的方法</h4><p><strong>1. 判断表法</strong>（P51）</p>
 <p>5个概念：条件桩、动作桩、条件项、动作项、规则。</p>
 <p><strong>2. 因果图法</strong></p>
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>因果图（Cuase-effect Graph）是一种描述输入条件的组合以及每种组合对应的输出的图形化工具。在因果图的基础上可以设计测试用例。因果图法通常和判定表相结合</p>
+<p>因果图设计测试用例基本步骤如下：</p>
+<ol>
+<li><strong>分析程序规格说明书描述内容</strong>：确定程序的输入与输出，即确定“原因”和“结果”</li>
+<li><strong>分析得出输入与输入之间、输入与输出之间的对应关系</strong>：将这些输入与输出之间的关系使用因果图表示出来</li>
+<li><strong>在因果图上使用若干个约束符号来标明约束条件</strong>：由于语法与环境的限制，有些输入与输入之间、输入与输出之间的组合情况是不可能出现的</li>
+<li><strong>将得到的因果图转换成判定表</strong></li>
+<li><strong>根据判定表设计测试用例</strong>：因果图法考虑了输入情况的各种组合以及各种输入情况之间的相互制约关系，可以帮助测试人员按照一定的步骤高效率地开发测试用例</li>
+</ol>
+<h4 id="因果图的图形符号表示关系"><a href="#因果图的图形符号表示关系" class="headerlink" title="因果图的图形符号表示关系"></a>因果图的图形符号表示关系</h4><p><img lazyload="" alt="image" data-src="http://www.itcast.cn/files/image/202111/20211108151314185.jpg"></p>
+<ul>
+<li>(a)恒等。若原因出现，则结果出现；若原因不出现，则结果不出现。</li>
+<li>(b)非。若原因出现，则结果不出现；若原因不出现，则结果出现。</li>
+<li>(c)或。若几个原因中有一个出现，则结果出现；若几个原因均不出现，则结果不出现。</li>
+<li>(d)与。若几个原因都出现，结果才出现；若几个原因中有一个不出现，则结果不出现。</li>
+</ul>
 <p><strong>3. Pairwise方法</strong>（两两组合测试）</p>
 <h4 id="4-基于组合及其优化的方法"><a href="#4-基于组合及其优化的方法" class="headerlink" title="4. 基于组合及其优化的方法"></a>4. 基于组合及其优化的方法</h4><p><strong>1.判定覆盖</strong><br>程序的每个判断条件的真分支和假分支都需要执行一次。</p>
 <p><strong>2. 条件覆盖</strong><br>程序的每个判断条件的可能取值至少满足一次。</p>
@@ -431,7 +447,7 @@
 <p><strong>3. 判定-条件覆盖</strong><br>程序的判断条件中的所有条件可能取值至少执行一次，所有判断结果都要执行一次。</p>
 <p><strong>4. 条件组合覆盖</strong><br>程序的每个判断条件的所有可能至少出现一次。<br>条件：a&gt;1||b&lt;0,用例：TT,TF,FT,FF</p>
 <p><strong>5. 基本路径覆盖</strong><br>设计所有的测试用例，来覆盖程序中所有可能的、独立的执行路径。</p>
-
+<h4 id="5-基于缺陷模式的测试"><a href="#5-基于缺陷模式的测试" class="headerlink" title="5. 基于缺陷模式的测试"></a>5. 基于缺陷模式的测试</h4><h4 id="6-基于模型的测试"><a href="#6-基于模型的测试" class="headerlink" title="6. 基于模型的测试"></a>6. 基于模型的测试</h4>
             </div>
 
             
@@ -440,7 +456,7 @@
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">#软件测试##</a>&nbsp;
+                            <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">#软件测试</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -475,7 +491,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">一. 软件测试的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F"><span class="nav-text">1 什么是软件质量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7"><span class="nav-text">2 软件缺陷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">3. 软件测试的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B1%82%E6%AC%A1"><span class="nav-text">4. 软件测试层次</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95"><span class="nav-text">二. 软件测试方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9F%BA%E4%BA%8E%E8%BE%93%E5%85%A5%E5%9F%9F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">1. 基于输入域的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E6%96%B9%E6%B3%95"><span class="nav-text">1.等价类划分方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%BE%B9%E7%95%8C%E5%80%BC%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-text">2. 边界值分析法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%9F%BA%E4%BA%8E%E7%BB%84%E5%90%88%E5%8F%8A%E5%85%B6%E4%BC%98%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">3. 基于组合及其优化的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%9F%BA%E4%BA%8E%E7%BB%84%E5%90%88%E5%8F%8A%E5%85%B6%E4%BC%98%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">4. 基于组合及其优化的方法</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">一. 软件测试的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F"><span class="nav-text">1 什么是软件质量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7"><span class="nav-text">2 软件缺陷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">3. 软件测试的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B1%82%E6%AC%A1"><span class="nav-text">4. 软件测试层次</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95"><span class="nav-text">二. 软件测试方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9F%BA%E4%BA%8E%E8%BE%93%E5%85%A5%E5%9F%9F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">1. 基于输入域的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E6%96%B9%E6%B3%95"><span class="nav-text">1.等价类划分方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%BE%B9%E7%95%8C%E5%80%BC%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-text">2. 边界值分析法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%9F%BA%E4%BA%8E%E7%BB%84%E5%90%88%E5%8F%8A%E5%85%B6%E4%BC%98%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">3. 基于组合及其优化的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%A0%E6%9E%9C%E5%9B%BE%E7%9A%84%E5%9B%BE%E5%BD%A2%E7%AC%A6%E5%8F%B7%E8%A1%A8%E7%A4%BA%E5%85%B3%E7%B3%BB"><span class="nav-text">因果图的图形符号表示关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%9F%BA%E4%BA%8E%E7%BB%84%E5%90%88%E5%8F%8A%E5%85%B6%E4%BC%98%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">4. 基于组合及其优化的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%9F%BA%E4%BA%8E%E7%BC%BA%E9%99%B7%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%B5%8B%E8%AF%95"><span class="nav-text">5. 基于缺陷模式的测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%B5%8B%E8%AF%95"><span class="nav-text">6. 基于模型的测试</span></a></li></ol></li></ol>
     </div>
 </div>
 
